@@ -637,3 +637,41 @@ export const Fingerprint = createIcon({
     </g>
   ),
 });
+
+export const AttendanceIcon = createIcon({
+  displayName: "AttendanceIcon",
+  viewBox: "0 0 24 24", // Update based on the icon's dimensions
+  path: (
+    <svg
+      width="24"
+      height="24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M9 11.5C9 10.12 10.12 9 11.5 9C12.88 9 14 10.12 14 11.5C14 12.88 12.88 14 11.5 14C10.12 14 9 12.88 9 11.5ZM12 17C13.93 17 16.5 18.07 16.5 18.07V19H7.5V18.07C7.5 18.07 10.07 17 12 17Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+});
+eateIcon({
+  displayName: "AttendanceIcon",
+  viewBox: "0 0 24 24", // Update based on the icon's dimensions
+  path: (
+    <svg
+      width="24"
+      height="24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M9 11.5C9 10.12 10.12 9 11.5 9C12.88 9 14 10.12 14 11.5C14 12.88 12.88 14 11.5 14C10.12 14 9 12.88 9 11.5ZM12 17C13.93 17 16.5 18.07 16.5 18.07V19H7.5V18.07C7.5 18.07 10.07 17 12 17Z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
+});
+

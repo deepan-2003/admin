@@ -155,3 +155,21 @@ body.chakra-ui-dark .react-calendar__tile--rangeEnd:enabled:focus {
   background: #7551ff;
   color: white;
 }
+/* For tiles with "present" attendance */
+.tile-present {
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+}
+
+.present-day {
+  background-color: #28a745 !important; /* Green for Present */
+  color: white !important;
+  border-radius: 50%;
+}
+
+.absent-day {
+  background-color: #dc3545 !important; /* Red for Absent */
+  color: white !important;
+  border-radius: 50%;
+}

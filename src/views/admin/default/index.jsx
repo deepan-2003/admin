@@ -51,44 +51,73 @@ import PieCard from "views/admin/default/components/PieCard";
 import Tasks from "views/admin/default/components/Tasks";
 import TotalSpent from "views/admin/default/components/TotalSpent";
 import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
-
 import {
   columnsDataCheck,
   columnsDataComplex,
 } from "views/admin/default/variables/columnsData";
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-import TodaysCourses from "./components/TodaysCourses";
-import ProfileDisplay from "./components/ProfileDisplay";
-import CGPAIndicator from "./components/CGPAIndicator";
-import NoticeBoard from "./components/NoticeBoard";
-import EventCalendar from "./components/EventCalendar";
+
 export default function UserReports() {
-  const notices = [
-    { title: "Exam Schedule Released", date: "Feb 25, 2025", description: "Check the website for details." },
-    { title: "Hackathon Registration Open", date: "Feb 27, 2025", description: "Register before March 1st!" },
-    { title: "Guest Lecture on AI", date: "March 3, 2025", description: "Join Dr. Smith's session on AI advancements." },
-  ];
-  const courses = [
-    { name: "Biology Molecular", code: "BIO101", lessons: 21, assignments: 5, duration: "50 min", attendance: 79 },
-    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
-    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
-    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
-    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
-
-  ];
-
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
   return (
-    
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-      {/* <SimpleGrid
+      <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
         gap='20px'
         mb='20px'>
-        
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w='56px'
+              h='56px'
+              bg={boxBg}
+              icon={
+                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor} />
+              }
+            />
+          }
+          name='Earnings'
+          value='$350.4'
+        />
+        <MiniStatistics
+          startContent={
+            <IconBox
+              w='56px'
+              h='56px'
+              bg={boxBg}
+              icon={
+                <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
+              }
+            />
+          }
+          name='Spend this month'
+          value='$642.39'
+        />
+        <MiniStatistics growth='+23%' name='Sales' value='$574.34' />
+        <MiniStatistics
+          endContent={
+            <Flex me='-16px' mt='10px'>
+              <FormLabel htmlFor='balance'>
+                <Avatar src={Usa} />
+              </FormLabel>
+              <Select
+                id='balance'
+                variant='mini'
+                mt='5px'
+                me='0px'
+                defaultValue='usd'>
+                <option value='usd'>USD</option>
+                <option value='eur'>EUR</option>
+                <option value='gba'>GBA</option>
+              </Select>
+            </Flex>
+          }
+          name='Your balance'
+          value='$1,000'
+        />
         <MiniStatistics
           startContent={
             <IconBox
@@ -115,36 +144,29 @@ export default function UserReports() {
           name='Total Projects'
           value='2935'
         />
-      </SimpleGrid> */}
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap="20px"  mb='20px'>
-      <ProfileDisplay
-        name="Arka Maulana"
-        location="Surakarta, INA"
-        courses={24}
-        certifications={18}
-        avatar="/avatar.png" // Change this path
-      />
-      <CGPAIndicator cgpa={8.5} /> {/* Adjust CGPA dynamically */}
-    </SimpleGrid>
-      
-
-      
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-        <TodaysCourses courses={courses}/>
-        <Tasks />
-       
       </SimpleGrid>
-      {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+
+      <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+        <TotalSpent />
+        <WeeklyRevenue />
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+          <DailyTraffic />
+          <PieCard />
+        </SimpleGrid>
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-       
-      </SimpleGrid> */}
-     
-
- <NoticeBoard notices={notices} showCalendar={true} />;
- <EventCalendar />
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+          <Tasks />
+          <MiniCalendar h='100%' minW='100%' selectRange={false} />
+        </SimpleGrid>
+      </SimpleGrid>
     </Box>
   );
 }

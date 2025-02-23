@@ -7,7 +7,12 @@ import {
   MdHome,
   MdLock,
   MdOutlineShoppingCart,
+  MdSchedule,
+  MdCalendar,
+  MdToday
 } from 'react-icons/md';
+
+import { AttendanceIcon } from 'components/icons/Icons';
 
 // Admin Imports
 import MainDashboard from 'views/admin/default';
@@ -15,6 +20,10 @@ import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
+import AttendancePage from 'views/admin/attendance';
+import Timetable from 'views/admin/timetable';
+
+
 
 // Auth Imports
 import SignInCentered from 'views/auth/signIn';
@@ -42,6 +51,21 @@ const routes = [
     component: <NFTMarketplace />,
     secondary: true,
   },
+  {
+    name: 'Attendance',
+    layout: '/admin',
+    path: '/attendance',
+    icon: <AttendanceIcon />,
+    component: <AttendancePage />,
+  },
+  {
+    name: 'Timetable',
+    layout: '/admin',
+    path: '/timetable',
+    icon: <Icon as={MdToday} width="20px" height="20px" color="inherit" />,
+    component: <Timetable />, // Ensure this matches your export
+  },
+  
   {
     name: 'Data Tables',
     layout: '/admin',
