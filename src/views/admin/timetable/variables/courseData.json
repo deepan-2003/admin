@@ -1,0 +1,153 @@
+[
+    {
+      "code": "CS101",
+      "title": "Introduction to Computer Science",
+      "category": "Core",
+      "contactPeriods": 5,
+      "credits": 4,
+      "coordinatorName": "Dr. Alice Smith",
+      "coordinatorPic": "https://example.com/alice.jpg",
+      "coordinatorPage": "https://example.com/faculty/alice"
+    },
+    {
+      "code": "MA202",
+      "title": "Linear Algebra and Differential Equations",
+      "category": "Mathematics",
+      "contactPeriods": 4,
+      "credits": 4,
+      "coordinatorName": "Dr. Bob Johnson",
+      "coordinatorPic": "https://example.com/bob.jpg",
+      "coordinatorPage": "https://example.com/faculty/bob"
+    },
+    {
+      "code": "PH303",
+      "title": "Quantum Mechanics",
+      "category": "Physics",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Carol Williams",
+      "coordinatorPic": "https://example.com/carol.jpg",
+      "coordinatorPage": "https://example.com/faculty/carol"
+    },
+    {
+      "code": "HS404",
+      "title": "Professional Ethics",
+      "category": "Humanities",
+      "contactPeriods": 2,
+      "credits": 2,
+      "coordinatorName": "Dr. Daniel Brown",
+      "coordinatorPic": "https://example.com/daniel.jpg",
+      "coordinatorPage": "https://example.com/faculty/daniel"
+    },
+    {
+      "code": "CS505",
+      "title": "Data Structures and Algorithms",
+      "category": "Core",
+      "contactPeriods": 4,
+      "credits": 4,
+      "coordinatorName": "Dr. Eva Green",
+      "coordinatorPic": "https://example.com/eva.jpg",
+      "coordinatorPage": "https://example.com/faculty/eva"
+    },
+    {
+      "code": "EE606",
+      "title": "Digital Signal Processing",
+      "category": "Electrical",
+      "contactPeriods": 4,
+      "credits": 3,
+      "coordinatorName": "Dr. Frank Harris",
+      "coordinatorPic": "https://example.com/frank.jpg",
+      "coordinatorPage": "https://example.com/faculty/frank"
+    },
+    {
+      "code": "ME707",
+      "title": "Thermodynamics",
+      "category": "Mechanical",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Grace Lee",
+      "coordinatorPic": "https://example.com/grace.jpg",
+      "coordinatorPage": "https://example.com/faculty/grace"
+    },
+    {
+      "code": "CH808",
+      "title": "Chemical Process Engineering",
+      "category": "Chemical",
+      "contactPeriods": 4,
+      "credits": 3,
+      "coordinatorName": "Dr. Henry Martin",
+      "coordinatorPic": "https://example.com/henry.jpg",
+      "coordinatorPage": "https://example.com/faculty/henry"
+    },
+    {
+      "code": "EE101",
+      "title": "Introduction to Electrical Engineering",
+      "category": "Electrical",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Ivy Carter",
+      "coordinatorPic": "https://example.com/ivy.jpg",
+      "coordinatorPage": "https://example.com/faculty/ivy"
+    },
+    {
+      "code": "ME202",
+      "title": "Fluid Mechanics",
+      "category": "Mechanical",
+      "contactPeriods": 4,
+      "credits": 3,
+      "coordinatorName": "Dr. John Walker",
+      "coordinatorPic": "https://example.com/john.jpg",
+      "coordinatorPage": "https://example.com/faculty/john"
+    },
+    {
+      "code": "CH101",
+      "title": "Basic Chemistry",
+      "category": "Chemical",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Kate Wilson",
+      "coordinatorPic": "https://example.com/kate.jpg",
+      "coordinatorPage": "https://example.com/faculty/kate"
+    },
+    {
+      "code": "MA303",
+      "title": "Probability and Statistics",
+      "category": "Mathematics",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Leo Turner",
+      "coordinatorPic": "https://example.com/leo.jpg",
+      "coordinatorPage": "https://example.com/faculty/leo"
+    },
+    {
+      "code": "CS606",
+      "title": "Artificial Intelligence",
+      "category": "Core",
+      "contactPeriods": 4,
+      "credits": 4,
+      "coordinatorName": "Dr. Mia Collins",
+      "coordinatorPic": "https://example.com/mia.jpg",
+      "coordinatorPage": "https://example.com/faculty/mia"
+    },
+    {
+      "code": "PH404",
+      "title": "Optics",
+      "category": "Physics",
+      "contactPeriods": 3,
+      "credits": 3,
+      "coordinatorName": "Dr. Noah Scott",
+      "coordinatorPic": "https://example.com/noah.jpg",
+      "coordinatorPage": "https://example.com/faculty/noah"
+    },
+    {
+      "code": "HS505",
+      "title": "Organizational Behavior",
+      "category": "Humanities",
+      "contactPeriods": 3,
+      "credits": 2,
+      "coordinatorName": "Dr. Olivia Adams",
+      "coordinatorPic": "https://example.com/olivia.jpg",
+      "coordinatorPage": "https://example.com/faculty/olivia"
+    }
+  ]
+  

@@ -1,0 +1,76 @@
+/* Timetable Styling */
+.timetable-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timetable-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timetable-container th {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.timetable-container td {
+    padding: 10px;
+    text-align: center;
+}
+
+.timetable-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Course Information Styling */
+.course-info-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-info-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.course-info-container th,
+.course-info-container td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.course-info-container th {
+    background-color: #2575fc;
+    color: white;
+    font-weight: bold;
+}
+
+.scrollable-table {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  
+  .scrollable-table::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #a0aec0; /* Adjust scrollbar color */
+    border-radius: 8px;
+  }
+  
+  .scrollable-table::-webkit-scrollbar-thumb:hover {
+    background-color: #718096; /* Darker on hover */
+  }
+  
