@@ -57,8 +57,26 @@ import {
 } from "views/admin/default/variables/columnsData";
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-
+import TodaysCourses from "./components/TodaysCourses";
+import ProfileDisplay from "./components/ProfileDisplay";
+import CGPAIndicator from "./components/CGPAIndicator";
+import NoticeBoard from "./components/NoticeBoard";
+import EventCalendar from "./components/EventCalendar";
 export default function UserReports() {
+  const notices = [
+    { title: "Exam Schedule Released", date: "Feb 25, 2025", description: "Check the website for details." },
+    { title: "Hackathon Registration Open", date: "Feb 27, 2025", description: "Register before March 1st!" },
+    { title: "Guest Lecture on AI", date: "March 3, 2025", description: "Join Dr. Smith's session on AI advancements." },
+  ];
+  const courses = [
+    { name: "Biology Molecular", code: "BIO101", lessons: 21, assignments: 5, duration: "50 min", attendance: 79 },
+    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
+    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
+    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
+    { name: "Color Theory", code: "ART102", lessons: 10, assignments: 2, duration: "45 min", attendance: 64 },
+
+  ];
+
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");

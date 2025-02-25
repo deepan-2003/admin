@@ -1,0 +1,454 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex e042341..0ce28c2 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,3 +1,6 @@[m
+[32m+[m[32m<<<<<<< HEAD[m
+[32m+[m
+[32m+[m[32m=======[m
+ # [Horizon UI ⚡️](https://horizon-ui.com/horizon-ui-chakra) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://horizon-ui.com/&text=Check%20Horizon%20UI,%20the%20trendiest%20open-source%20admin%20template%20for%20Chakra%20UI%20&%20React!)[m
+ [m
+ ![version](https://img.shields.io/badge/version-3.0.0-brightgreen.svg)[m
+[36m@@ -112,3 +115,4 @@[m [mnew people that already use Horizon UI![m
+ ⭐️ [Copyright 2023 Simmmple ](https://www.simmmple.com/?ref=readme-horizon)[m
+ [m
+ 📄 [Horizon UI License](https://www.simmmple.com/licenses?ref=readme-horizon)[m
+[32m+[m[32m>>>>>>> cffacd1 (Initial commit)[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex a2321de..1937e2d 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -1,8 +1,9 @@[m
+ {[m
+[32m+[m[32m  "homepage":"https://lathasri114.github.io/admin",[m
+   "name": "horizon-ui-chakra",[m
+   "version": "2.0.0",[m
+   "private": true,[m
+[31m-  "dependencies": {[m
+[32m+[m[32m "dependencies": {[m
+     "@babel/preset-react": "^7.18.6",[m
+     "@chakra-ui/icons": "^2.0.19",[m
+     "@chakra-ui/react": "2.6.1",[m
+[36m@@ -68,7 +69,7 @@[m
+   "devDependencies": {[m
+     "anymatch": "^3.1.3",[m
+     "chokidar": "^3.6.0",[m
+[31m-    "gh-pages": "^6.1.1",[m
+[32m+[m[32m    "gh-pages": "^6.3.0",[m
+     "micromatch": "^4.0.7"[m
+   }[m
+ }[m
+[1mdiff --git a/src/App.js b/src/App.js[m
+[1mindex cc940a5..d65a080 100644[m
+[1m--- a/src/App.js[m
+[1m+++ b/src/App.js[m
+[36m@@ -1,6 +1,7 @@[m
+ import './assets/css/App.css';[m
+[31m-import { Routes, Route, Navigate } from 'react-router-dom';[m
+[32m+[m[32mimport { Routes, Route, Navigate} from 'react-router-dom';[m
+ import {} from 'react-router-dom';[m
+[32m+[m
+ import AuthLayout from './layouts/auth';[m
+ import AdminLayout from './layouts/admin';[m
+ import RTLLayout from './layouts/rtl';[m
+[1mdiff --git a/src/components/icons/Icons.js b/src/components/icons/Icons.js[m
+[1mindex 7d3cb4b..ed4cdf9 100644[m
+[1m--- a/src/components/icons/Icons.js[m
+[1m+++ b/src/components/icons/Icons.js[m
+[36m@@ -656,3 +656,22 @@[m [mexport const AttendanceIcon = createIcon({[m
+     </svg>[m
+   ),[m
+ });[m
+[32m+[m[32meateIcon({[m
+[32m+[m[32m  displayName: "AttendanceIcon",[m
+[32m+[m[32m  viewBox: "0 0 24 24", // Update based on the icon's dimensions[m
+[32m+[m[32m  path: ([m
+[32m+[m[32m    <svg[m
+[32m+[m[32m      width="24"[m
+[32m+[m[32m      height="24"[m
+[32m+[m[32m      fill="none"[m
+[32m+[m[32m      xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m    >[m
+[32m+[m[32m      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />[m
+[32m+[m[32m      <path[m
+[32m+[m[32m        d="M9 11.5C9 10.12 10.12 9 11.5 9C12.88 9 14 10.12 14 11.5C14 12.88 12.88 14 11.5 14C10.12 14 9 12.88 9 11.5ZM12 17C13.93 17 16.5 18.07 16.5 18.07V19H7.5V18.07C7.5 18.07 10.07 17 12 17Z"[m
+[32m+[m[32m        fill="currentColor"[m
+[32m+[m[32m      />[m
+[32m+[m[32m    </svg>[m
+[32m+[m[32m  ),[m
+[32m+[m[32m});[m
+[41m+[m
+[1mdiff --git a/src/index.js b/src/index.js[m
+[1mindex b60f977..fe1c569 100644[m
+[1m--- a/src/index.js[m
+[1m+++ b/src/index.js[m
+[36m@@ -1,5 +1,6 @@[m
+ import React from 'react';[m
+ import ReactDOM from 'react-dom/client';[m
+[32m+[m
+ import { BrowserRouter } from 'react-router-dom';[m
+ import './assets/css/App.css';[m
+ [m
+[1mdiff --git a/src/views/admin/default/components/CGPAIndicator.js b/src/views/admin/default/components/CGPAIndicator.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..54513b0[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/CGPAIndicator.js[m
+[36m@@ -0,0 +1,55 @@[m
+[32m+[m[32mimport { Box, Text, Button, Flex, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";[m
+[32m+[m[32mimport { motion, useAnimation } from "framer-motion";[m
+[32m+[m[32mimport { useEffect } from "react";[m
+[32m+[m
+[32m+[m[32m// Motion Wrapper[m
+[32m+[m[32mconst MotionBox = motion(Box);[m
+[32m+[m
+[32m+[m[32mconst CGPAIndicator = ({ cgpa }) => {[m
+[32m+[m[32m  const controls = useAnimation();[m
+[32m+[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    controls.start({[m
+[32m+[m[32m      value: cgpa * 10, // Scaling CGPA to percentage[m
+[32m+[m[32m      transition: { duration: 1.5, ease: "easeInOut" },[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }, [cgpa, controls]);[m
+[32m+[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <MotionBox[m
+[32m+[m[32m      bg="white"[m
+[32m+[m[32m      p={6}[m
+[32m+[m[32m      borderRadius="2xl"[m
+[32m+[m[32m      boxShadow="lg"[m
+[32m+[m[32m      initial={{ opacity: 0, scale: 0.8 }}[m
+[32m+[m[32m      animate={{ opacity: 1, scale: 1 }}[m
+[32m+[m[32m      transition={{ duration: 0.6 }}[m
+[32m+[m[32m      w="100%"[m
+[32m+[m[32m      maxW="350px"[m
+[32m+[m[32m      mx="auto"[m
+[32m+[m[32m    >[m
+[32m+[m[32m      <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={3}>[m
+[32m+[m[32m        CGPA Score[m
+[32m+[m[32m      </Text>[m
+[32m+[m[32m      <Flex align="center" justify="center">[m
+[32m+[m[32m        <motion.div animate={controls}>[m
+[32m+[m[32m          <CircularProgress size="140px" value={cgpa * 10} color="green.400">[m
+[32m+[m[32m            <CircularProgressLabel fontSize="xl" fontWeight="bold">[m
+[32m+[m[32m              {cgpa.toFixed(2)}[m
+[32m+[m[32m            </CircularProgressLabel>[m
+[32m+[m[32m          </CircularProgress>[m
+[32m+[m[32m        </motion.div>[m
+[32m+[m[32m      </Flex>[m
+[32m+[m[32m      <Flex mt={4} justify="space-around">[m
+[32m+[m[32m        <Button variant="outline" size="sm">[m
+[32m+[m[32m          Redeem[m
+[32m+[m[32m        </Button>[m
+[32m+[m[32m        <Button colorScheme="green" size="sm">[m
+[32m+[m[32m          Improve[m
+[32m+[m[32m        </Button>[m
+[32m+[m[32m      </Flex>[m
+[32m+[m[32m    </MotionBox>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default CGPAIndicator;[m
+[1mdiff --git a/src/views/admin/default/components/EventCalendar.js b/src/views/admin/default/components/EventCalendar.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f87c7e8[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/EventCalendar.js[m
+[36m@@ -0,0 +1,67 @@[m
+[32m+[m[32mimport { Box, Text, VStack, HStack, Icon, Divider, useBreakpointValue } from "@chakra-ui/react";[m
+[32m+[m[32mimport Calendar from "react-calendar";[m
+[32m+[m[32mimport "react-calendar/dist/Calendar.css"; // Default styles for calendar[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m[32mimport { FaRegCalendarAlt } from "react-icons/fa";[m
+[32m+[m
+[32m+[m[32m// Sample events[m
+[32m+[m[32mconst events = [[m
+[32m+[m[32m  { date: "2025-03-01", title: "National Day", type: "Holiday", color: "pink.200" },[m
+[32m+[m[32m  { date: "2025-03-10", title: "Summer Holiday Event", type: "Event", color: "blue.200" },[m
+[32m+[m[32m  { date: "2025-03-22", title: "School Function", type: "Event", color: "red.200" },[m
+[32m+[m[32m  { date: "2025-03-26", title: "Dean Meeting", type: "Event", color: "green.200" },[m
+[32m+[m[32m  { date: "2025-03-30", title: "Carnival in the City", type: "Holiday", color: "pink.200" },[m
+[32m+[m[32m];[m
+[32m+[m
+[32m+[m[32m// Motion Wrapper[m
+[32m+[m[32mconst MotionBox = motion(Box);[m
+[32m+[m
+[32m+[m[32mconst EventCalendar = () => {[m
+[32m+[m[32m  const isMobile = useBreakpointValue({ base: true, md: false });[m
+[32m+[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <MotionBox[m
+[32m+[m[32m      bg="white"[m
+[32m+[m[32m      p={6}[m
+[32m+[m[32m      borderRadius="2xl"[m
+[32m+[m[32m      boxShadow="lg"[m
+[32m+[m[32m      w="100%"[m
+[32m+[m[32m      maxW={isMobile ? "100%" : "900px"}[m
+[32m+[m[32m      mx="auto"[m
+[32m+[m[32m      display="flex"[m
+[32m+[m[32m      flexDirection={isMobile ? "column" : "row"}[m
+[32m+[m[32m      gap={6}[m
+[32m+[m[32m      initial={{ opacity: 0, y: 20 }}[m
+[32m+[m[32m      animate={{ opacity: 1, y: 0 }}[m
+[32m+[m[32m      transition={{ duration: 0.6 }}[m
+[32m+[m[32m    >[m
+[32m+[m[32m      {/* Calendar Section */}[m
+[32m+[m[32m      <Box flex={isMobile ? "none" : "1"} p={4}>[m
+[32m+[m[32m        <Calendar[m
+[32m+[m[32m          tileContent={({ date }) => {[m
+[32m+[m[32m            const eventDay = events.find((e) => e.date === date.toISOString().split("T")[0]);[m
+[32m+[m[32m            return eventDay ? <Text fontSize="sm" color="red.500">•</Text> : null;[m
+[32m+[m[32m          }}[m
+[32m+[m[32m        />[m
+[32m+[m[32m      </Box>[m
+[32m+[m
+[32m+[m[32m      {/* Events List */}[m
+[32m+[m[32m      <VStack spacing={4} align="stretch" flex={isMobile ? "none" : "1"}>[m
+[32m+[m[32m        {events.map((event, index) => ([m
+[32m+[m[32m          <Box key={index} p={4} bg={event.color} borderRadius="lg" boxShadow="md">[m
+[32m+[m[32m            <HStack spacing={3}>[m
+[32m+[m[32m              <Icon as={FaRegCalendarAlt} color="gray.600" boxSize={5} />[m
+[32m+[m[32m              <VStack align="start" spacing={1}>[m
+[32m+[m[32m                <Text fontWeight="bold">{event.title}</Text>[m
+[32m+[m[32m                <Text fontSize="sm" color="gray.600">{event.type}</Text>[m
+[32m+[m[32m              </VStack>[m
+[32m+[m[32m            </HStack>[m
+[32m+[m[32m            {index !== events.length - 1 && <Divider mt={3} />}[m
+[32m+[m[32m          </Box>[m
+[32m+[m[32m        ))}[m
+[32m+[m[32m      </VStack>[m
+[32m+[m[32m    </MotionBox>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default EventCalendar;[m
+[1mdiff --git a/src/views/admin/default/components/NoticeBoard.js b/src/views/admin/default/components/NoticeBoard.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..df8f01d[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/NoticeBoard.js[m
+[36m@@ -0,0 +1,76 @@[m
+[32m+[m[32mimport { Box, Text, VStack, HStack, Icon, Divider, Button } from "@chakra-ui/react";[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m[32mimport { Scrollbars } from "react-custom-scrollbars-2";[m
+[32m+[m[32mimport { FaBell, FaCalendarAlt, FaExclamationTriangle, FaCheckCircle } from "react-icons/fa";[m
+[32m+[m[32mimport { renderTrack, renderThumb, renderView } from "../../../../components/scrollbar/Scrollbar";[m
+[32m+[m
+[32m+[m[32mconst MotionBox = motion(Box);[m
+[32m+[m
+[32m+[m[32m// Custom Notice Card Templates[m
+[32m+[m[32mconst noticeTemplates = [[m
+[32m+[m[32m  { bg: "blue.50", icon: FaBell, iconColor: "blue.500" }, // General Notice[m
+[32m+[m[32m  { bg: "yellow.50", icon: FaExclamationTriangle, iconColor: "yellow.500" }, // Warning[m
+[32m+[m[32m  { bg: "green.50", icon: FaCheckCircle, iconColor: "green.500" }, // Success[m
+[32m+[m[32m];[m
+[32m+[m
+[32m+[m[32mconst NoticeBoard = ({ notices, showCalendar }) => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <MotionBox[m
+[32m+[m[32m      bg="white"[m
+[32m+[m[32m      p={6}[m
+[32m+[m[32m      borderRadius="2xl"[m
+[32m+[m[32m      boxShadow="lg"[m
+[32m+[m[32m      w="100%"[m
+[32m+[m[32m      maxW="100%"[m
+[32m+[m[32m      mx="auto"[m
+[32m+[m[32m      initial={{ opacity: 0, y: 20 }}[m
+[32m+[m[32m      animate={{ opacity: 1, y: 0 }}[m
+[32m+[m[32m      transition={{ duration: 0.6 }}[m
+[32m+[m[32m    >[m
+[32m+[m[32m      <Text fontSize="xl" fontWeight="bold" textAlign="center" mb={4}>[m
+[32m+[m[32m        Notice Board[m
+[32m+[m[32m      </Text>[m
+[32m+[m
+[32m+[m[32m      {/* Optional Calendar Section */}[m
+[32m+[m[32m      {showCalendar && ([m
+[32m+[m[32m        <Box bg="gray.100" p={3} borderRadius="lg" textAlign="center" mb={4}>[m
+[32m+[m[32m          <Icon as={FaCalendarAlt} color="purple.500" mr={2} />[m
+[32m+[m[32m          <strong>Upcoming Event:</strong> Workshop on AI - March 5th[m
+[32m+[m[32m        </Box>[m
+[32m+[m[32m      )}[m
+[32m+[m
+[32m+[m[32m      <Scrollbars[m
+[32m+[m[32m        autoHeight[m
+[32m+[m[32m        autoHeightMax={300}[m
+[32m+[m[32m        renderTrackVertical={renderTrack}[m
+[32m+[m[32m        renderThumbVertical={renderThumb}[m
+[32m+[m[32m        renderView={renderView}[m
+[32m+[m[32m      >[m
+[32m+[m[32m        <VStack spacing={4} align="stretch">[m
+[32m+[m[32m          {notices.map((notice, index) => {[m
+[32m+[m[32m            const template = noticeTemplates[index % noticeTemplates.length]; // Rotate templates[m
+[32m+[m[32m            return ([m
+[32m+[m[32m              <Box key={index} p={4} bg={template.bg} borderRadius="lg" boxShadow="md">[m
+[32m+[m[32m                <HStack spacing={3}>[m
+[32m+[m[32m                  <Icon as={template.icon} color={template.iconColor} boxSize={6} />[m
+[32m+[m[32m                  <VStack align="start" spacing={1}>[m
+[32m+[m[32m                    <Text fontWeight="bold">{notice.title}</Text>[m
+[32m+[m[32m                    <Text fontSize="sm" color="gray.500">{notice.date}</Text>[m
+[32m+[m[32m                  </VStack>[m
+[32m+[m[32m                </HStack>[m
+[32m+[m[32m                <Text fontSize="sm" mt={2}>{notice.description}</Text>[m
+[32m+[m[32m                {index !== notices.length - 1 && <Divider mt={3} />}[m
+[32m+[m[32m              </Box>[m
+[32m+[m[32m            );[m
+[32m+[m[32m          })}[m
+[32m+[m[32m        </VStack>[m
+[32m+[m[32m      </Scrollbars>[m
+[32m+[m
+[32m+[m[32m      <Button mt={4} colorScheme="blue" w="full">[m
+[32m+[m[32m        View All Notices[m
+[32m+[m[32m      </Button>[m
+[32m+[m[32m    </MotionBox>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default NoticeBoard;[m
+[1mdiff --git a/src/views/admin/default/components/ProfileDisplay.js b/src/views/admin/default/components/ProfileDisplay.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d6fd78a[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/ProfileDisplay.js[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32mimport { Box, Text, Image, Flex, Avatar, VStack } from "@chakra-ui/react";[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m
+[32m+[m[32m// Motion wrapper for animations[m
+[32m+[m[32mconst MotionBox = motion(Box);[m
+[32m+[m
+[32m+[m[32mconst ProfileDisplay = ({ name, location, courses, certifications, avatar }) => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <MotionBox[m
+[32m+[m[32m      bg="white"[m
+[32m+[m[32m      p={6}[m
+[32m+[m[32m      borderRadius="2xl"[m
+[32m+[m[32m      boxShadow="lg"[m
+[32m+[m[32m      textAlign="center"[m
+[32m+[m[32m      initial={{ opacity: 0, y: -20 }}[m
+[32m+[m[32m      animate={{ opacity: 1, y: 0 }}[m
+[32m+[m[32m      transition={{ duration: 0.6 }}[m
+[32m+[m[32m      w="100%"[m
+[32m+[m[32m      maxW="350px"[m
+[32m+[m[32m      mx="auto"[m
+[32m+[m[32m    >[m
+[32m+[m[32m      {/* Profile Background Image */}[m
+[32m+[m[32m      <Image[m
+[32m+[m[32m        src="https://source.unsplash.com/350x150/?technology,abstract"[m
+[32m+[m[32m        alt="Profile Background"[m
+[32m+[m[32m        borderRadius="lg"[m
+[32m+[m[32m        w="100%"[m
+[32m+[m[32m        h="120px"[m
+[32m+[m[32m        objectFit="cover"[m
+[32m+[m[32m      />[m
+[32m+[m[32m      {/* Profile Avatar */}[m
+[32m+[m[32m      <Avatar size="xl" src={avatar} mt={-12} border="4px solid white" />[m
+[32m+[m[32m      <VStack spacing={1} mt={2}>[m
+[32m+[m[32m        <Text fontSize="xl" fontWeight="bold">{name}</Text>[m
+[32m+[m[32m        <Text fontSize="sm" color="gray.500">{location}</Text>[m
+[32m+[m[32m      </VStack>[m
+[32m+[m
+[32m+[m[32m      <Flex justify="space-around" mt={4}>[m
+[32m+[m[32m        <Box textAlign="center">[m
+[32m+[m[32m          <Text fontWeight="bold" fontSize="lg">{courses}</Text>[m
+[32m+[m[32m          <Text fontSize="sm" color="gray.500">Courses</Text>[m
+[32m+[m[32m        </Box>[m
+[32m+[m[32m        <Box textAlign="center">[m
+[32m+[m[32m          <Text fontWeight="bold" fontSize="lg">{certifications}</Text>[m
+[32m+[m[32m          <Text fontSize="sm" color="gray.500">Certifications</Text>[m
+[32m+[m[32m        </Box>[m
+[32m+[m[32m      </Flex>[m
+[32m+[m[32m    </MotionBox>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default ProfileDisplay;[m
+[1mdiff --git a/src/views/admin/default/components/ProgressCircle.js b/src/views/admin/default/components/ProgressCircle.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..857301c[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/ProgressCircle.js[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mimport { Box, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";[m
+[32m+[m
+[32m+[m[32mconst ProgressCircle = ({ value }) => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <Box display="flex" justifyContent="center" alignItems="center">[m
+[32m+[m[32m      <CircularProgress value={value} size="60px" thickness="8px" color="green.400">[m
+[32m+[m[32m        <CircularProgressLabel fontSize="sm">{value}%</CircularProgressLabel>[m
+[32m+[m[32m      </CircularProgress>[m
+[32m+[m[32m    </Box>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default ProgressCircle;[m
+[1mdiff --git a/src/views/admin/default/components/TodaysCourses.js b/src/views/admin/default/components/TodaysCourses.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d5dc6cb[m
+[1m--- /dev/null[m
+[1m+++ b/src/views/admin/default/components/TodaysCourses.js[m
+[36m@@ -0,0 +1,64 @@[m
+[32m+[m[32mimport { Box, Text, Flex, Button, VStack } from "@chakra-ui/react";[m
+[32m+[m[32mimport { Scrollbars } from "react-custom-scrollbars-2";[m
+[32m+[m[32mimport { renderTrack, renderThumb, renderView } from "../../../../components/scrollbar/Scrollbar";[m
+[32m+[m[32mimport ProgressCircle from "./ProgressCircle";[m
+[32m+[m
+[32m+[m[32mconst TodaysCourses = ({ courses }) => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <Box[m
+[32m+[m[32m      bg="white"[m
+[32m+[m[32m      p={4}[m
+[32m+[m[32m      borderRadius="lg"[m
+[32m+[m[32m      boxShadow="md"[m
+[32m+[m[32m      maxW="450px"[m
+[32m+[m[32m      mx="auto"[m
+[32m+[m[32m    >[m
+[32m+[m[32m      <Text fontSize="xl" fontWeight="bold" mb={4}>[m
+[32m+[m[32m        {courses.length > 1 ? "Today's Courses" : "Today's Course"}[m
+[32m+[m[32m      </Text>[m
+[32m+[m
+[32m+[m[32m      {/* Custom Scrollbar Integration */}[m
+[32m+[m[32m      <Scrollbars[m[41m [m
+[32m+[m[32m        autoHeight[m[41m [m
+[32m+[m[32m        autoHeightMax={500}[m[41m [m
+[32m+[m[32m        renderTrackVertical={renderTrack}[m[41m [m
+[32m+[m[32m        renderThumbVertical={renderThumb}[m[41m [m
+[32m+[m[32m        renderView={renderView}[m
+[32m+[m[32m      >[m
+[32m+[m[32m        <VStack spacing={4} align="stretch" px={2} py={1}>[m
+[32m+[m[32m          {courses.map((course, index) => ([m
+[32m+[m[32m            <Flex[m
+[32m+[m[32m              key={index}[m
+[32m+[m[32m              p={4}[m
+[32m+[m[32m              bg="gray.50"[m
+[32m+[m[32m              borderRadius="md"[m
+[32m+[m[32m              justify="space-between"[m
+[32m+[m[32m              align="center"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <Flex align="center">[m
+[32m+[m[32m                <ProgressCircle value={course.attendance} />[m
+[32m+[m[32m                <Box ml={4}>[m
+[32m+[m[32m                  <Text fontWeight="bold">{course.name}</Text>[m
+[32m+[m[32m                  <Text fontSize="sm" color="gray.600">[m
+[32m+[m[32m                    {course.lessons} lessons • {course.assignments} assignments[m
+[32m+[m[32m                  </Text>[m
+[32m+[m[32m                </Box>[m
+[32m+[m[32m              </Flex>[m
+[32m+[m
+[32m+[m[32m              <Flex gap={2}>[m
+[32m+[m[32m                <Button variant="outline" size="sm">[m
+[32m+[m[32m                  Skip[m
+[32m+[m[32m                </Button>[m
+[32m+[m[32m                <Button colorScheme="green" size="sm">[m
+[32m+[m[32m                  Continue[m
+[32m+[m[32m                </Button>[m
+[32m+[m[32m              </Flex>[m
+[32m+[m[32m            </Flex>[m
+[32m+[m[32m          ))}[m
+[32m+[m[32m        </VStack>[m
+[32m+[m[32m      </Scrollbars>[m
+[32m+[m[32m    </Box>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default TodaysCourses;[m

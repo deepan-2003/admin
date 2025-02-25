@@ -77,7 +77,11 @@ export default function SidebarDocs() {
           fontSize='sm'
           minW='185px'
           mx='auto'>
+<<<<<<< HEAD
           Upgrade to PRO
+=======
+          
+>>>>>>> a907058f34169aae83b87a6fad5642bf0c1cb188
         </Button>
       </Link>
     </Flex>
