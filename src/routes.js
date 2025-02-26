@@ -9,7 +9,8 @@ import {
   MdOutlineShoppingCart,
   MdSchedule,
   MdCalendar,
-  MdToday
+  MdToday,
+  MdLibraryBooks
 } from 'react-icons/md';
 
 import { AttendanceIcon } from 'components/icons/Icons';
@@ -22,6 +23,7 @@ import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
 import AttendancePage from 'views/admin/attendance';
 import Timetable from 'views/admin/timetable';
+import CoursePage from 'views/admin/courses'; // Import the Courses page
 
 
 
