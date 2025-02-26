@@ -65,6 +65,14 @@ const routes = [
     icon: <Icon as={MdToday} width="20px" height="20px" color="inherit" />,
     component: <Timetable />, // Ensure this matches your export
   },
+
+  {
+    name: 'Courses', // Adding Courses page
+    layout: '/admin',
+    path: '/courses',
+    icon: <Icon as={MdLibraryBooks} width="20px" height="20px" color="inherit" />, // Use MdLibraryBooks for a course-related icon
+    component: <CoursePage />, // Ensure this matches your export
+  },
   
   {
     name: 'Data Tables',
