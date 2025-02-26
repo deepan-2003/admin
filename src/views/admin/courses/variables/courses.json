@@ -1,0 +1,91 @@
+[
+    {
+      "id": "1",
+      "title": "Data Science Essentials",
+      "courseCode": "DSE101",
+      "faculty": "Dr. John Doe",
+      "facultyImage": "https://example.com/johndoe.jpg",
+      "assignmentsPending": 3,
+      "classesAttended": 5,
+      "totalClasses": 7,
+      "session": "January 2025 - April 2025"
+    },
+    {
+      "id": "2",
+      "title": "Principles of Machine Learning",
+      "courseCode": "PML202",
+      "faculty": "Dr. Jane Smith",
+      "facultyImage": "https://example.com/janesmith.jpg",
+      "assignmentsPending": 2,
+      "classesAttended": 6,
+      "totalClasses": 10,
+      "session": "May 2025 - August 2025"
+    },
+    {
+      "id": "3",
+      "title": "Programming in Scratch",
+      "courseCode": "PS301",
+      "faculty": "Prof. Emily Davis",
+      "facultyImage": "https://example.com/emilydavis.jpg",
+      "assignmentsPending": 0,
+      "classesAttended": 7,
+      "totalClasses": 8,
+      "session": "January 2025 - April 2025"
+    },
+    {
+      "id": "4",
+      "title": "Management Accounting",
+      "courseCode": "MA401",
+      "faculty": "Dr. Sarah Wilson",
+      "facultyImage": "https://example.com/sarahwilson.jpg",
+      "assignmentsPending": 5,
+      "classesAttended": 4,
+      "totalClasses": 9,
+      "session": "September 2025 - December 2025"
+    },
+    {
+      "id": "5",
+      "title": "Introduction to Artificial Intelligence",
+      "courseCode": "IAI102",
+      "faculty": "Dr. Michael Brown",
+      "facultyImage": "https://example.com/michaelbrown.jpg",
+      "assignmentsPending": 1,
+      "classesAttended": 8,
+      "totalClasses": 8,
+      "session": "January 2025 - April 2025"
+    },
+    {
+      "id": "6",
+      "title": "Basics of Data Visualization",
+      "courseCode": "BDV105",
+      "faculty": "Dr. Olivia Green",
+      "facultyImage": "https://example.com/oliviagreen.jpg",
+      "assignmentsPending": 4,
+      "classesAttended": 3,
+      "totalClasses": 7,
+      "session": "January 2025 - April 2025"
+    },
+    {
+      "id": "7",
+      "title": "Foundations of Cybersecurity",
+      "courseCode": "FCS204",
+      "faculty": "Dr. Kevin White",
+      "facultyImage": "https://example.com/kevinwhite.jpg",
+      "assignmentsPending": 0,
+      "classesAttended": 6,
+      "totalClasses": 8,
+      "session": "January 2025 - April 2025"
+    },
+    {
+      "id": "8",
+      "title": "Introduction to Software Engineering",
+      "courseCode": "ISE303",
+      "faculty": "Prof. Laura Taylor",
+      "facultyImage": "https://example.com/laurataylor.jpg",
+      "assignmentsPending": 3,
+      "classesAttended": 5,
+      "totalClasses": 6,
+      "session": "January 2025 - April 2025"
+    }
+  ]
+  
