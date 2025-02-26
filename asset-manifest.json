@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/admin/static/css/main.1264e014.css",
-    "main.js": "/admin/static/js/main.ec83eae3.js",
+    "main.js": "/admin/static/js/main.d2efe11c.js",
     "static/media/auth.png": "/admin/static/media/auth.20d5979b439e1531640d.png",
     "static/media/NftBanner1.png": "/admin/static/media/NftBanner1.87062366f75bedd52bd2.png",
     "static/media/Nft2.png": "/admin/static/media/Nft2.7897c45d2601ee3adfb5.png",
@@ -23,6 +23,6 @@
   },
   "entrypoints": [
     "static/css/main.1264e014.css",
-    "static/js/main.ec83eae3.js"
+    "static/js/main.d2efe11c.js"
   ]
 }
