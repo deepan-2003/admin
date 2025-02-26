@@ -1,67 +1,166 @@
-// Chakra imports
-import { Avatar, Box, Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import { Avatar, Box, Text, useColorModeValue, Grid, GridItem, Input, IconButton } from "@chakra-ui/react";
+import { FaCamera } from "react-icons/fa";
 import Card from "components/card/Card.js";
-import React from "react";
 
 export default function Banner(props) {
-  const { banner, avatar, name, job, posts, followers, following } = props;
+  const { 
+    banner, avatar, name, institution, degree, branch, currentsemester, dob, gender, mobileno, mailid, 
+    isEditing 
+  } = props;
+
   // Chakra Color Mode
   const textColorPrimary = useColorModeValue("secondaryGray.900", "white");
-  const textColorSecondary = "gray.400";
-  const borderColor = useColorModeValue(
-    "white !important",
-    "#111C44 !important"
-  );
+  const textColorSecondary = useColorModeValue("gray.500", "gray.400");
+  const borderColor = useColorModeValue("white !important", "#111C44 !important");
+  const bgColor = useColorModeValue("gray.100", "gray.700");
+
+  // Editable Fields State
+  const [editableData, setEditableData] = useState({
+    name, institution, degree, branch, currentsemester, dob, gender, mobileno, mailid
+  });
+
+  const [profilePic, setProfilePic] = useState(avatar); // Profile picture state
+
+  // Update local state when props change
+  useEffect(() => {
+    setEditableData({ name, institution, degree, branch, currentsemester, dob, gender, mobileno, mailid });
+    setProfilePic(avatar); // Update profile picture if props change
+  }, [name, institution, degree, branch, currentsemester, dob, gender, mobileno, mailid, avatar]);
+
+  const handleChange = (field, value) => {
+    setEditableData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleProfilePicChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setProfilePic(imageUrl);
+    }
+  };
+
   return (
-    <Card mb={{ base: "0px", lg: "20px" }} align='center'>
+    <Card mb={{ base: "0px", lg: "20px" }} align="center" p="20px" w="100%">
+      {/* Background Banner */}
       <Box
         bg={`url(${banner})`}
-        bgSize='cover'
-        borderRadius='16px'
-        h='131px'
-        w='100%'
+        bgSize="cover"
+        borderRadius="16px"
+        h="150px"
+        w="100%"
+        position="relative"
       />
-      <Avatar
-        mx='auto'
-        src={avatar}
-        h='87px'
-        w='87px'
-        mt='-43px'
-        border='4px solid'
-        borderColor={borderColor}
-      />
-      <Text color={textColorPrimary} fontWeight='bold' fontSize='xl' mt='10px'>
-        {name}
-      </Text>
-      <Text color={textColorSecondary} fontSize='sm'>
-        {job}
-      </Text>
-      <Flex w='max-content' mx='auto' mt='26px'>
-        <Flex mx='auto' me='60px' align='center' direction='column'>
-          <Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
-            {posts}
-          </Text>
-          <Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-            Posts
-          </Text>
-        </Flex>
-        <Flex mx='auto' me='60px' align='center' direction='column'>
-          <Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
-            {followers}
-          </Text>
-          <Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-            Followers
-          </Text>
-        </Flex>
-        <Flex mx='auto' align='center' direction='column'>
-          <Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
-            {following}
-          </Text>
-          <Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-            Following
-          </Text>
-        </Flex>
-      </Flex>
+      
+      {/* Profile Picture */}
+      <Box position="relative" mx="auto" w="120px" h="120px">
+        <Avatar
+          src={profilePic}
+          h="120px"
+          w="120px"
+          mt="-60px"
+          border="4px solid"
+          borderColor={borderColor}
+        />
+        {isEditing && (
+          <>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleProfilePicChange}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                opacity: 0,
+                cursor: "pointer",
+              }}
+            />
+            <IconButton
+              icon={<FaCamera />}
+              position="absolute"
+              bottom="50px"
+              right="5px"
+              size="sm"
+              borderRadius="full"
+              bg="gray.600"
+              color="white"
+              _hover={{ bg: "gray.500" }}
+              onClick={() => document.querySelector('input[type="file"]').click()}
+            />
+          </>
+        )}
+      </Box>
+
+      {/* Name Field */}
+      {isEditing ? (
+        <Input
+          value={editableData.name}
+          onChange={(e) => handleChange("name", e.target.value)}
+          fontSize="2xl"
+          fontWeight="bold"
+          mt="-50px"
+          textAlign="center"
+        />
+      ) : (
+        <Text color={textColorPrimary} fontWeight="bold" fontSize="2xl" mt="-50px" textAlign="center">
+          {editableData.name}
+        </Text>
+      )}
+
+      {/* Student Information Grid */}
+      <Grid templateColumns="repeat(2, 1fr)" gap={4} mt={5} w="100%">
+        {[
+          { label: "Institution", field: "institution" },
+          { label: "Degree", field: "degree" },
+          { label: "Branch", field: "branch" },
+          { label: "Current Semester", field: "currentsemester" },
+          { label: "Date of Birth", field: "dob" },
+          { label: "Gender", field: "gender" },
+          { label: "Mobile No", field: "mobileno" },
+          { label: "Mail Id", field: "mailid" },
+        ].map(({ label, field }) => (
+          <GridItem 
+            key={field} 
+            bg={bgColor} 
+            p={3} 
+            borderRadius="10px"
+            minH="60px"
+            w="100%" 
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+          >
+            <Text 
+              color={textColorPrimary} 
+              fontSize="med" 
+              fontWeight="bold"
+              whiteSpace="nowrap"
+            >
+              {label}
+            </Text>
+            {isEditing ? (
+              <Input
+                value={editableData[field]}
+                onChange={(e) => handleChange(field, e.target.value)}
+                fontSize="sm"
+                textAlign="center"
+                mt="1"
+                w="100%" 
+                p="2"  
+                wordBreak="break-word"
+                whiteSpace="normal"
+              />
+            ) : (
+              <Text color={textColorSecondary} fontSize="sm" textAlign="center" mt="1" wordBreak="break-word" whiteSpace="normal">
+                {editableData[field]}
+              </Text>
+            )}
+          </GridItem>
+        ))}
+      </Grid>
     </Card>
   );
 }
