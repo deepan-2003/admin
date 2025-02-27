@@ -1,0 +1,40 @@
+.timetable-container {
+    padding: 20px;
+    background: #f7f9fc;
+    color: #333;
+    border-radius: 8px;
+  }
+  
+  .timetable-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .timetable-table th,
+  .timetable-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .timetable-table th {
+    background: #e3f2fd;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  .course-slot {
+    background: #e0f7fa;
+    font-size: 12px;
+    text-align: left;
+  }
+  
+  .course-details .course-name {
+    font-weight: bold;
+  }
+  
+  .course-details .course-code,
+  .course-details .venue {
+    font-size: 11px;
+  }
+  

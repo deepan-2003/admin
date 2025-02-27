@@ -13,12 +13,13 @@ import {
   Input,
   Button,
   Icon,
+  HStack,
 } from "@chakra-ui/react";
-import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaPlus, FaTrash, FaCogs, FaCode, FaUsers } from "react-icons/fa";
 
 const Skills = ({ professionalSkills, softSkills, isEditing }) => {
-  const [editedProfessionalSkills, setEditedProfessionalSkills] = useState(professionalSkills);
-  const [editedSoftSkills, setEditedSoftSkills] = useState(softSkills);
+  const [editedProfessionalSkills, setEditedProfessionalSkills] = useState(professionalSkills || []);
+  const [editedSoftSkills, setEditedSoftSkills] = useState(softSkills || []);
   const [newSkill, setNewSkill] = useState({ name: "", level: "" });
   const [newSoftSkill, setNewSoftSkill] = useState("");
 
@@ -62,51 +63,90 @@ const Skills = ({ professionalSkills, softSkills, isEditing }) => {
 
   return (
     <Box p={6} bg="white" borderRadius="xl" boxShadow="lg" width="100%" maxW="900px" mx="auto">
-      <Heading size="lg" mb={5} textAlign="center">Professional & Soft Skills</Heading>
+      {/* Main Heading with Icon */}
+      <HStack align="center" justify="center" mb={5}>
+        <Icon as={FaCogs} color="blue.500" boxSize={6} mr={2} />
+        <Heading size="lg" textAlign="center">
+          Professional & Soft Skills
+        </Heading>
+      </HStack>
 
-      <VStack align="start" spacing={5} w="full">
+      <VStack align="start" spacing={4} w="full">
         {/* Professional Skills with Circular Progress */}
         <Box w="full">
-          <Text fontSize="md" fontWeight="bold" mb={4}>Technical Skills</Text>
-          <SimpleGrid columns={{ base: 2, md: 3 }} spacing={6}>
+          <HStack align="center" mb={3}>
+            <Icon as={FaCode} color="blue.500" mr={2} />
+            <Text fontSize="lg" fontWeight="bold">
+              Technical Skills
+            </Text>
+          </HStack>
+          <SimpleGrid columns={{ base: 2, md: 3 }} spacing={4}>
             {editedProfessionalSkills.map((skill, index) => (
-              <Box key={index} textAlign="center">
+              <Box
+                key={index}
+                textAlign="center"
+                p={3}
+                border="1px solid"
+                borderColor="gray.100"
+                borderRadius="lg"
+                bg="white"
+                transition="all 0.2s"
+                _hover={{ bg: "gray.50" }}
+                position="relative" // Add relative positioning for the trash icon
+              >
                 {isEditing ? (
-                  <>
+                  <VStack spacing={2} align="stretch">
                     <Input
                       value={skill.name}
                       onChange={(e) => handleSkillChange(index, "name", e.target.value)}
+                      placeholder="Skill Name"
                       size="sm"
-                      mb={2}
+                      variant="filled"
                     />
                     <Input
                       type="number"
                       value={skill.level}
                       onChange={(e) => handleSkillChange(index, "level", e.target.value)}
+                      placeholder="Level (%)"
                       size="sm"
-                      width="60px"
-                      mb={2}
+                      variant="filled"
+                      maxW="100px"
                     />
-                    <Button size="xs" colorScheme="red" onClick={() => handleDeleteSkill(index)}>
-                      <Icon as={FaTrash} />
-                    </Button>
-                  </>
+                  </VStack>
                 ) : (
-                  <CircularProgress value={skill.level} size="60px" color="blue.400">
-                    <CircularProgressLabel fontSize="xs">{skill.level}%</CircularProgressLabel>
-                  </CircularProgress>
+                  <>
+                    <CircularProgress value={skill.level} size="60px" color="blue.400">
+                      <CircularProgressLabel fontSize="xs">{skill.level}%</CircularProgressLabel>
+                    </CircularProgress>
+                    <Text fontSize="sm" fontWeight="medium" mt={2}>
+                      {skill.name}
+                    </Text>
+                  </>
                 )}
-                <Text fontSize="sm" fontWeight="medium" mt={2}>{skill.name}</Text>
+                {/* Add trash icon for editing mode */}
+                {isEditing && (
+                  <Button
+                    size="xs"
+                    colorScheme="red"
+                    position="absolute"
+                    top={2}
+                    right={2}
+                    onClick={() => handleDeleteSkill(index)}
+                  >
+                    <Icon as={FaTrash} />
+                  </Button>
+                )}
               </Box>
             ))}
           </SimpleGrid>
           {isEditing && (
-            <VStack mt={4} spacing={2} align="start">
+            <VStack mt={3} spacing={2} align="start">
               <Input
                 placeholder="New Skill Name"
                 value={newSkill.name}
                 onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
                 size="sm"
+                variant="filled"
               />
               <Input
                 type="number"
@@ -114,22 +154,43 @@ const Skills = ({ professionalSkills, softSkills, isEditing }) => {
                 value={newSkill.level}
                 onChange={(e) => setNewSkill({ ...newSkill, level: e.target.value })}
                 size="sm"
-                width="60px"
+                variant="filled"
+                maxW="100px"
               />
-              <Button size="sm" colorScheme="green" onClick={handleAddSkill} leftIcon={<FaPlus />}>Add Skill</Button>
+              <Button
+                size="sm"
+                colorScheme="blue"
+                leftIcon={<FaPlus />}
+                onClick={handleAddSkill}
+                variant="outline"
+              >
+                Add Skill
+              </Button>
             </VStack>
           )}
         </Box>
 
         {/* Soft Skills */}
         <Box w="full">
-          <Text fontSize="md" fontWeight="bold" mb={2}>Soft Skills</Text>
-          <Wrap spacing={3}>
+          <HStack align="center" mb={2}>
+            <Icon as={FaUsers} color="teal.500" mr={2} />
+            <Text fontSize="lg" fontWeight="bold">
+              Soft Skills
+            </Text>
+          </HStack>
+          <Wrap spacing={2}>
             {editedSoftSkills.map((skill, index) => (
               <WrapItem key={index}>
-                <Tag colorScheme="teal" size="lg">{skill}</Tag>
+                <Tag colorScheme="teal" size="lg">
+                  {skill}
+                </Tag>
                 {isEditing && (
-                  <Button size="xs" colorScheme="red" ml={2} onClick={() => handleDeleteSoftSkill(index)}>
+                  <Button
+                    size="xs"
+                    colorScheme="red"
+                    ml={1}
+                    onClick={() => handleDeleteSoftSkill(index)}
+                  >
                     <Icon as={FaTrash} />
                   </Button>
                 )}
@@ -137,14 +198,23 @@ const Skills = ({ professionalSkills, softSkills, isEditing }) => {
             ))}
           </Wrap>
           {isEditing && (
-            <VStack mt={4} spacing={2} align="start">
+            <VStack mt={3} spacing={2} align="start">
               <Input
                 placeholder="New Soft Skill"
                 value={newSoftSkill}
                 onChange={(e) => setNewSoftSkill(e.target.value)}
                 size="sm"
+                variant="filled"
               />
-              <Button size="sm" colorScheme="green" onClick={handleAddSoftSkill} leftIcon={<FaPlus />}>Add Soft Skill</Button>
+              <Button
+                size="sm"
+                colorScheme="blue"
+                leftIcon={<FaPlus />}
+                onClick={handleAddSoftSkill}
+                variant="outline"
+              >
+                Add Soft Skill
+              </Button>
             </VStack>
           )}
         </Box>

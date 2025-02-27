@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Box, Text, useColorModeValue, Grid, GridItem, Input, IconButton } from "@chakra-ui/react";
-import { FaCamera } from "react-icons/fa";
+import { FaCamera, FaTrash } from "react-icons/fa";
 import Card from "components/card/Card.js";
 
 export default function Banner(props) {
@@ -14,6 +14,7 @@ export default function Banner(props) {
   const textColorSecondary = useColorModeValue("gray.500", "gray.400");
   const borderColor = useColorModeValue("white !important", "#111C44 !important");
   const bgColor = useColorModeValue("gray.100", "gray.700");
+  const hoverBgColor = useColorModeValue("gray.200", "gray.600");
 
   // Editable Fields State
   const [editableData, setEditableData] = useState({
@@ -61,6 +62,7 @@ export default function Banner(props) {
           mt="-60px"
           border="4px solid"
           borderColor={borderColor}
+          _hover={{ opacity: isEditing ? 0.8 : 1, cursor: isEditing ? "pointer" : "default" }}
         />
         {isEditing && (
           <>
@@ -101,6 +103,7 @@ export default function Banner(props) {
           fontWeight="bold"
           mt="-50px"
           textAlign="center"
+          variant="filled"
         />
       ) : (
         <Text color={textColorPrimary} fontWeight="bold" fontSize="2xl" mt="-50px" textAlign="center">
@@ -109,7 +112,7 @@ export default function Banner(props) {
       )}
 
       {/* Student Information Grid */}
-      <Grid templateColumns="repeat(2, 1fr)" gap={4} mt={5} w="100%">
+      <Grid templateColumns="repeat(2, 1fr)" gap={3} mt={5} w="100%">
         {[
           { label: "Institution", field: "institution" },
           { label: "Degree", field: "degree" },
@@ -123,19 +126,21 @@ export default function Banner(props) {
           <GridItem 
             key={field} 
             bg={bgColor} 
-            p={3} 
+            p={2} 
             borderRadius="10px"
-            minH="60px"
+            minH="50px"
             w="100%" 
             display="flex"
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
             textAlign="center"
+            position="relative"
+            _hover={{ bg: hoverBgColor, cursor: isEditing ? "pointer" : "default" }}
           >
             <Text 
               color={textColorPrimary} 
-              fontSize="med" 
+              fontSize="sm" 
               fontWeight="bold"
               whiteSpace="nowrap"
             >
@@ -149,14 +154,27 @@ export default function Banner(props) {
                 textAlign="center"
                 mt="1"
                 w="100%" 
-                p="2"  
+                p="1"  
                 wordBreak="break-word"
                 whiteSpace="normal"
+                variant="filled"
               />
             ) : (
               <Text color={textColorSecondary} fontSize="sm" textAlign="center" mt="1" wordBreak="break-word" whiteSpace="normal">
                 {editableData[field]}
               </Text>
+            )}
+            {/* Trash Icon for Editing Mode */}
+            {isEditing && (
+              <IconButton
+                icon={<FaTrash />}
+                size="xs"
+                colorScheme="red"
+                position="absolute"
+                top={1}
+                right={1}
+                onClick={() => handleChange(field, "")} // Clear the field
+              />
             )}
           </GridItem>
         ))}

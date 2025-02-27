@@ -156,20 +156,14 @@ body.chakra-ui-dark .react-calendar__tile--rangeEnd:enabled:focus {
   color: white;
 }
 /* For tiles with "present" attendance */
-.tile-present {
-  background-color: green;
-  color: white;
-  border-radius: 50%;
-}
-
 .present-day {
-  background-color: #28a745 !important; /* Green for Present */
-  color: white !important;
-  border-radius: 50%;
+  background-color: #c6f6d5 !important; /* Light green */
 }
 
 .absent-day {
-  background-color: #dc3545 !important; /* Red for Absent */
-  color: white !important;
-  border-radius: 50%;
+  background-color: #fed7d7 !important; /* Light red */
+}
+
+.scheduled-class {
+  background-color: #bee3f8 !important; /* Light blue */
 }

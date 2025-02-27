@@ -1,15 +1,16 @@
 import React from "react";
-import TimetableTable from './components/TimetableTable';
+import TimetableTable from "./components/TimetableTable";
+import timetableData from "./variables/timetable.json";
 
-import timetableData from "./variables/timetableData.json";
-import courseData from "./variables/courseData.json";
+const Timetable = () => {
+  const { days, timeSlots, timetable } = timetableData;
 
-function App() {
   return (
-    <div>
-      <TimetableTable timetableData={timetableData} courseData={courseData} />
+    <div className="timetable-page">
+      <h1>Timetable</h1>
+      <TimetableTable days={days} timeSlots={timeSlots} timetable={timetable} />
     </div>
   );
-}
+};
 
-export default App;
+export default Timetable;

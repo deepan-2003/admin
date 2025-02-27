@@ -1,6 +1,31 @@
-{
-    "2025-02-10": "present",
-    "2025-02-11": "absent",
-    "2025-02-12": "present",
-    "2025-02-13": "absent"
-}
+[
+    {
+      "name": "John Doe",
+      "course": "Mathematics",
+      "status": "Present",
+      "hours": 2,
+      "date": "2025-02-01"
+    },
+    {
+      "name": "Jane Smith",
+      "course": "Physics",
+      "status": "Absent",
+      "hours": 0,
+      "date": "2025-02-01"
+    },
+    {
+      "name": "Michael Brown",
+      "course": "Chemistry",
+      "status": "Present",
+      "hours": 3,
+      "date": "2025-02-03"
+    },
+    {
+      "name": "Emily Johnson",
+      "course": "Biology",
+      "status": "Present",
+      "hours": 1,
+      "date": "2025-02-04"
+    }
+  ]
+  

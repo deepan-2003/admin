@@ -1,0 +1,54 @@
+{
+  "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  "timeSlots": [
+    "8:00 - 8:50",
+    "9:00 - 9:50",
+    "10:00 - 10:50",
+    "11:00 - 11:50",
+    "12:00 - 12:50",
+    "1:00 - 1:50",
+    "2:00 - 2:50",
+    "3:00 - 3:50",
+    "4:00 - 4:50"
+  ],
+  "timetable": {
+    "Monday": [
+      { "time": "8:00 - 8:50", "courseName": "Mathematics I", "courseCode": "MATH101", "venue": "Room 101" },
+      { "time": "9:00 - 10:50", "courseName": "Physics", "courseCode": "PHY202", "venue": "Room 203" },
+      { "time": "11:00 - 11:50", "courseName": "Computer Science", "courseCode": "CS103", "venue": "Lab 401" },
+      { "time": "12:00 - 12:50", "courseName": "English", "courseCode": "ENG301", "venue": "Room 205" },
+      { "time": "1:00 - 1:50", "courseName": "Control Systems", "courseCode": "CS404", "venue": "Room 105" },
+      { "time": "2:00 - 3:50", "courseName": "Chemistry", "courseCode": "CHEM505", "venue": "Lab 501" }
+    ],
+    "Tuesday": [
+      { "time": "8:00 - 8:50", "courseName": "Data Structures", "courseCode": "CS201", "venue": "Room 102" },
+      { "time": "9:00 - 9:50", "courseName": "Linear Algebra", "courseCode": "MATH204", "venue": "Room 202" },
+      { "time": "10:00 - 10:50", "courseName": "Digital Circuits", "courseCode": "ECE101", "venue": "Room 303" },
+      { "time": "11:00 - 12:50", "courseName": "AI Basics", "courseCode": "AI305", "venue": "Room 405" },
+      { "time": "1:00 - 1:50", "courseName": "Ethics", "courseCode": "HUM102", "venue": "Room 106" },
+      { "time": "2:00 - 2:50", "courseName": "Signal Processing", "courseCode": "ECE403", "venue": "Lab 601" }
+    ],
+    "Wednesday": [
+      { "time": "8:00 - 8:50", "courseName": "Thermodynamics", "courseCode": "MECH101", "venue": "Room 103" },
+      { "time": "9:00 - 9:50", "courseName": "Probability", "courseCode": "MATH303", "venue": "Room 305" },
+      { "time": "10:00 - 11:50", "courseName": "Microprocessors", "courseCode": "ECE205", "venue": "Lab 501" },
+      { "time": "12:00 - 12:50", "courseName": "English Literature", "courseCode": "ENG202", "venue": "Room 201" },
+      { "time": "1:00 - 2:50", "courseName": "Machine Learning", "courseCode": "AI506", "venue": "Room 503" },
+      { "time": "3:00 - 3:50", "courseName": "Project Work", "courseCode": "PRJ601", "venue": "Lab 701" }
+    ],
+    "Thursday": [
+      { "time": "8:00 - 8:50", "courseName": "Fluid Mechanics", "courseCode": "MECH302", "venue": "Room 105" },
+      { "time": "9:00 - 10:50", "courseName": "Software Engineering", "courseCode": "CS302", "venue": "Room 304" },
+      { "time": "11:00 - 11:50", "courseName": "Control Systems", "courseCode": "ECE401", "venue": "Room 402" },
+      { "time": "12:00 - 1:50", "courseName": "Statistics", "courseCode": "MATH505", "venue": "Room 603" },
+      { "time": "2:00 - 2:50", "courseName": "Robotics", "courseCode": "AI407", "venue": "Room 607" }
+    ],
+    "Friday": [
+      { "time": "8:00 - 8:50", "courseName": "Circuit Design", "courseCode": "ECE205", "venue": "Lab 401" },
+      { "time": "9:00 - 9:50", "courseName": "Machine Learning", "courseCode": "AI504", "venue": "Room 505" },
+      { "time": "10:00 - 10:50", "courseName": "Database Systems", "courseCode": "CS301", "venue": "Room 107" },
+      { "time": "11:00 - 12:50", "courseName": "Project Work", "courseCode": "PRJ701", "venue": "Lab 802" },
+      { "time": "1:00 - 1:50", "courseName": "Quantum Computing", "courseCode": "CS602", "venue": "Room 605" }
+    ]
+  }
+}

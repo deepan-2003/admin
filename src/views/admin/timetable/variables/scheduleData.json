@@ -1,0 +1,31 @@
+{
+    "CS101": [
+      {
+        "date": "2025-02-26",
+        "day": "Wednesday",
+        "time": "10:00 AM - 12:00 PM",
+        "hours": 2
+      },
+      {
+        "date": "2025-03-04",
+        "day": "Tuesday",
+        "time": "1:00 PM - 2:00 PM",
+        "hours": 1
+      }
+    ],
+    "CS102": [
+      {
+        "date": "2025-02-27",
+        "day": "Thursday",
+        "time": "2:00 PM - 3:00 PM",
+        "hours": 1
+      },
+      {
+        "date": "2025-03-05",
+        "day": "Wednesday",
+        "time": "9:00 AM - 11:00 AM",
+        "hours": 2
+      }
+    ]
+  }
+  

@@ -2,13 +2,17 @@
     {
       "id": "1",
       "title": "Data Science Essentials",
-      "courseCode": "DSE101",
+      "courseCode": "CS101",
       "faculty": "Dr. John Doe",
       "facultyImage": "https://example.com/johndoe.jpg",
       "assignmentsPending": 3,
       "classesAttended": 5,
       "totalClasses": 7,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Wednesday", "time": "10:00 AM - 12:00 PM", "duration": 2 },
+        { "day": "Friday", "time": "3:00 PM - 4:00 PM", "duration": 1 }
+      ]
     },
     {
       "id": "2",
@@ -19,7 +23,11 @@
       "assignmentsPending": 2,
       "classesAttended": 6,
       "totalClasses": 10,
-      "session": "May 2025 - August 2025"
+      "session": "May 2025 - August 2025",
+      "classSchedule": [
+        { "day": "Tuesday", "time": "11:00 AM - 12:00 PM", "duration": 1 },
+        { "day": "Thursday", "time": "2:00 PM - 3:30 PM", "duration": 1.5 }
+      ]
     },
     {
       "id": "3",
@@ -30,7 +38,11 @@
       "assignmentsPending": 0,
       "classesAttended": 7,
       "totalClasses": 8,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Monday", "time": "2:00 PM - 4:00 PM", "duration": 2 },
+        { "day": "Friday", "time": "10:00 AM - 11:30 AM", "duration": 1.5 }
+      ]
     },
     {
       "id": "4",
@@ -41,7 +53,11 @@
       "assignmentsPending": 5,
       "classesAttended": 4,
       "totalClasses": 9,
-      "session": "September 2025 - December 2025"
+      "session": "September 2025 - December 2025",
+      "classSchedule": [
+        { "day": "Wednesday", "time": "9:00 AM - 10:30 AM", "duration": 1.5 },
+        { "day": "Friday", "time": "11:00 AM - 12:30 PM", "duration": 1.5 }
+      ]
     },
     {
       "id": "5",
@@ -52,7 +68,11 @@
       "assignmentsPending": 1,
       "classesAttended": 8,
       "totalClasses": 8,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Thursday", "time": "3:00 PM - 5:00 PM", "duration": 2 },
+        { "day": "Saturday", "time": "9:00 AM - 10:30 AM", "duration": 1.5 }
+      ]
     },
     {
       "id": "6",
@@ -63,7 +83,11 @@
       "assignmentsPending": 4,
       "classesAttended": 3,
       "totalClasses": 7,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Tuesday", "time": "1:00 PM - 2:00 PM", "duration": 1 },
+        { "day": "Thursday", "time": "3:30 PM - 5:00 PM", "duration": 1.5 }
+      ]
     },
     {
       "id": "7",
@@ -74,7 +98,11 @@
       "assignmentsPending": 0,
       "classesAttended": 6,
       "totalClasses": 8,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Monday", "time": "10:00 AM - 12:00 PM", "duration": 2 },
+        { "day": "Friday", "time": "1:00 PM - 2:30 PM", "duration": 1.5 }
+      ]
     },
     {
       "id": "8",
@@ -85,7 +113,11 @@
       "assignmentsPending": 3,
       "classesAttended": 5,
       "totalClasses": 6,
-      "session": "January 2025 - April 2025"
+      "session": "January 2025 - April 2025",
+      "classSchedule": [
+        { "day": "Wednesday", "time": "1:30 PM - 3:00 PM", "duration": 1.5 },
+        { "day": "Friday", "time": "10:30 AM - 12:00 PM", "duration": 1.5 }
+      ]
     }
   ]
   

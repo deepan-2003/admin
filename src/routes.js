@@ -21,7 +21,7 @@ import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
-import AttendancePage from 'views/admin/attendance';
+
 import Timetable from 'views/admin/timetable';
 import CoursePage from 'views/admin/courses'; // Import the Courses page
 
@@ -53,13 +53,7 @@ const routes = [
     component: <NFTMarketplace />,
     secondary: true,
   },
-  {
-    name: 'Attendance',
-    layout: '/admin',
-    path: '/attendance',
-    icon: <AttendanceIcon />,
-    component: <AttendancePage />,
-  },
+ 
   {
     name: 'Timetable',
     layout: '/admin',

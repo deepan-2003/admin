@@ -1,18 +1,23 @@
-import { Box, Grid, Button, VStack } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Box,
+  Grid,
+  Button,
+  VStack,
+} from "@chakra-ui/react";
 import Banner from "views/admin/profile/components/Banner";
-import Projects from "views/admin/profile/components/Projects";
-import Certifications from "views/admin/profile/components/Certifications";
-import Achievements from "views/admin/profile/components/Achievements";
-import Skills from "views/admin/profile/components/Skills";
-import Activities from "views/admin/profile/components/Activities";
-import Publications from "views/admin/profile/components/Publications";
 import EducationDetails from "views/admin/profile/components/EducationDetails";
-import CgpaAnalysis from "views/admin/profile/components/CgpaAnalysis";
+import Skills from "views/admin/profile/components/Skills";
+import Projects from "views/admin/profile/components/Projects";
 import Experience from "views/admin/profile/components/Experience";
+import Certifications from "views/admin/profile/components/Certifications";
+import Activities from "views/admin/profile/components/Activities";
+import Achievements from "views/admin/profile/components/Achievements";
+import Publications from "views/admin/profile/components/Publications";
+import CgpaAnalysis from "views/admin/profile/components/CgpaAnalysis";
 
 import banner from "assets/img/auth/banner.png";
 import avatar from "assets/img/avatars/avatar4.png";
-import React, { useState } from "react";
 
 export default function Overview() {
   const [isMainEditing, setIsMainEditing] = useState(false);
@@ -21,10 +26,11 @@ export default function Overview() {
     education: false,
     skills: false,
     projects: false,
-    publications: false,
+    experience: false,
     certifications: false,
     activities: false,
     achievements: false,
+    publications: false,
     cgpa: false,
   });
 
@@ -37,10 +43,11 @@ export default function Overview() {
         education: false,
         skills: false,
         projects: false,
-        publications: false,
+        experience: false,
         certifications: false,
         activities: false,
         achievements: false,
+        publications: false,
         cgpa: false,
       });
     } else {
@@ -50,10 +57,11 @@ export default function Overview() {
         education: false,
         skills: false,
         projects: false,
-        publications: false,
+        experience: false,
         certifications: false,
         activities: false,
         achievements: false,
+        publications: false,
         cgpa: false,
       });
     }
@@ -72,14 +80,15 @@ export default function Overview() {
         {isMainEditing ? "Save Changes" : "Edit Profile"}
       </Button>
 
+      {/* Banner, Education, and Skills */}
       <Grid templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }} gap="24px" mb="24px" alignItems="stretch">
         <Box height="450px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
           <Banner
             banner={banner}
             avatar={avatar}
             name="Mohamed Riffath K"
-            institution="MIT"
-            degree="B.E"
+            institution="Madras Institute of Technology"
+            degree="Bachelors in Engineering"
             branch="Computer Technology"
             currentsemester="8"
             dob="18-12-2023"
@@ -123,8 +132,10 @@ export default function Overview() {
               { name: "Machine Learning", level: 85 },
               { name: "React.js", level: 80 },
               { name: "Java", level: 75 },
+              { name: "UI/UX", level: 80 },
+              { name: "C++", level: 80 },
             ]}
-            softSkills={["Leadership", "Communication", "Problem Solving", "Teamwork"]}
+            softSkills={["Leadership", "Communication", "Problem Solving", "Teamwork","Communication", "Problem Solving"]}
             isEditing={editingStates.skills}
           />
           {isMainEditing && (
@@ -137,32 +148,48 @@ export default function Overview() {
         </Box>
       </Grid>
 
+      {/* Projects and Experience */}
       <Grid templateColumns="repeat(2, 1fr)" gap="24px" mb="24px" alignItems="stretch">
-        <Box height="400px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
+        <Box height="350px" overflowY="auto" css={{ scrollbarWidth: "none", msOverflowStyle: "none", "&::-webkit-scrollbar": { display: "none" } }}>
           <Projects
             projects={[
-              { title: "AI Chatbot", description: "A chatbot powered by AI for customer service." },
-              { title: "Real-Time Translation", description: "A tool for translating languages in real time." },
-              { title: "Weather App", description: "An app that provides real-time weather updates." },
-              { title: "E-Commerce Platform", description: "A platform for buying and selling products." },
+              { title: "AI Chatbot", domain: "NLP", timePeriod: "2023", description: "A chatbot powered by AI for customer service." },
+              { title: "Real-Time Translation", domain: "AI/ML", timePeriod: "2022", description: "A tool for translating languages in real time." },
+              { title: "Weather App", domain: "Web Development", timePeriod: "2021", description: "An app that provides real-time weather updates." },
+              { title: "E-Commerce Platform", domain: "E-Commerce", timePeriod: "2020", description: "A platform for buying and selling products." },
             ]}
             isEditing={editingStates.projects}
           />
           {isMainEditing && (
             <VStack mt={4}>
-              <Button onClick={() => handleComponentEditToggle('projects')} colorScheme="blue" size="sm">
+              <Button onClick={() => handleComponentEditToggle("projects")} colorScheme="blue" size="sm">
                 {editingStates.projects ? "Save" : "Edit"}
               </Button>
             </VStack>
           )}
         </Box>
 
-        <Box height="400px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
+        <Box height="350px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
           <Experience
             experiences={[
-              { role: "Software Engineer", company: "Google", duration: "2021 - Present" },
-              { role: "Research Intern", company: "Facebook AI", duration: "2020 - 2021" },
-              { role: "Junior Developer", company: "Startup Inc.", duration: "2019 - 2020" },
+              { 
+                role: "Software Engineer", 
+                company: "Google", 
+                duration: "2021 - Present", 
+                description: "Developed scalable backend systems using Go and Kubernetes. Collaborated with cross-functional teams to deliver high-quality software solutions." 
+              },
+              { 
+                role: "Research Intern", 
+                company: "Facebook AI", 
+                duration: "2020 - 2021", 
+                description: "Conducted research on natural language processing (NLP) models. Published a paper on transformer-based architectures for text summarization." 
+              },
+              { 
+                role: "Junior Developer", 
+                company: "Startup Inc.", 
+                duration: "2019 - 2020", 
+                description: "Built and maintained RESTful APIs using Node.js and Express. Assisted in the development of the company's flagship web application." 
+              },
             ]}
             isEditing={editingStates.experience}
           />
@@ -176,15 +203,15 @@ export default function Overview() {
         </Box>
       </Grid>
 
+      {/* Certifications, Activities, and Achievements */}
       <Grid templateColumns="repeat(3, 1fr)" gap="24px" mb="24px" alignItems="stretch">
         <Box height="350px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
           <Certifications
             certificates={[
-              { name: "AI & Machine Learning", issuer: "Coursera", year: "2024" },
-              { name: "Cloud Computing", issuer: "AWS", year: "2023" },
-              { name: "Data Science", issuer: "edX", year: "2022" },
-              { name: "Cybersecurity Essentials", issuer: "Cisco", year: "2021" },
-              { name: "AI & Machine Learning", issuer: "Coursera", year: "2024" },
+              { name: "AI & Machine Learning", issuer: "Coursera", year: "2024", link: "https://example.com" },
+              { name: "Cloud Computing", issuer: "AWS", year: "2023", link: "https://example.com" },
+              { name: "Data Science", issuer: "edX", year: "2022", link: "https://example.com" },
+              { name: "Cybersecurity Essentials", issuer: "Cisco", year: "2021", link: "https://example.com" },
             ]}
             isEditing={editingStates.certifications}
           />
@@ -236,6 +263,7 @@ export default function Overview() {
         </Box>
       </Grid>
 
+      {/* CGPA Analysis and Publications */}
       <Grid templateColumns="repeat(2, 1fr)" gap="24px" mb="24px" alignItems="stretch">
         <Box height="450px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>
           <CgpaAnalysis
@@ -244,8 +272,11 @@ export default function Overview() {
               { semester: "Sem 2", cgpa: 9.0 },
               { semester: "Sem 3", cgpa: 8.7 },
               { semester: "Sem 4", cgpa: 9.2 },
+              { semester: "Sem 5", cgpa: 7.2 },
+              { semester: "Sem 6", cgpa: 6.2 },
             ]}
           />
+          
         </Box>
 
         <Box height="400px" overflowY="auto" css={{ scrollbarWidth: 'none', msOverflowStyle: 'none', '&::-webkit-scrollbar': { display: 'none' } }}>

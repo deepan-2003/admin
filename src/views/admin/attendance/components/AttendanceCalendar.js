@@ -1,120 +1,84 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import "assets/css/MiniCalendar.css";
-import { Text, Icon, Box, Select } from "@chakra-ui/react";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md"; // Chakra imports
-import Card from "components/card/Card.js"; // Custom components
+import React, { useState, useEffect } from "react";
+import { Box, Text, Badge, Avatar, VStack, Grid, GridItem } from "@chakra-ui/react";
+import attendanceData from "../variables/attendanceData.json";
 
-export default function AttendanceCalendar(props) {
-  const { ...rest } = props;
-  const [selectedCourse, setSelectedCourse] = useState(""); // State for selected course
-  const [value, onChange] = useState(new Date());
+const AttendanceCalendar = () => {
+  const [attendance, setAttendance] = useState([]);
 
-  // Sample attendance data for courses
-  const courseAttendanceData = {
-    Mathematics: {
-      "2025-02-20": "present",
-      "2025-02-21": "absent",
-      "2025-02-22": "present",
-    },
-    Physics: {
-      "2025-02-19": "absent",
-      "2025-02-20": "present",
-      "2025-02-21": "present",
-    },
-    "Computer Science": {
-      "2025-02-18": "present",
-      "2025-02-19": "present",
-      "2025-02-20": "absent",
-    },
-  };
+  useEffect(() => {
+    // Load attendance data from JSON
+    setAttendance(attendanceData);
+  }, []);
 
-  // Get attendance data for the selected course
-  const attendance = selectedCourse ? courseAttendanceData[selectedCourse] : {};
+  const renderCalendarCells = () => {
+    const daysInMonth = new Date(2025, 2, 0).getDate(); // Example: February 2025
+    const firstDay = new Date(2025, 1, 1).getDay(); // Example: Feb 1, 2025 (Saturday)
 
-  // Highlight attendance days with colors
-  const getTileClassName = ({ date }) => {
-    const formattedDate = date.toISOString().split("T")[0];
-    if (attendance[formattedDate] === "present") {
-      return "present-day";
+    const calendarCells = [];
+    let dayCounter = 1;
+
+    // Render empty cells for days before the first of the month
+    for (let i = 0; i < firstDay; i++) {
+      calendarCells.push(<GridItem key={`empty-${i}`} />);
     }
-    if (attendance[formattedDate] === "absent") {
-      return "absent-day";
+
+    // Render cells for each day of the month
+    while (dayCounter <= daysInMonth) {
+      const dayAttendance = attendance.filter(
+        (record) => new Date(record.date).getDate() === dayCounter
+      );
+
+      calendarCells.push(
+        <GridItem key={`day-${dayCounter}`} border="1px solid #E2E8F0" p={2} rounded="md">
+          <Text fontWeight="bold">{dayCounter}</Text>
+          {dayAttendance.map((record, index) => (
+            <Box
+              key={index}
+              mt={2}
+              p={2}
+              bg={record.status === "Present" ? "green.100" : "red.100"}
+              rounded="md"
+            >
+              <VStack align="start" spacing={1}>
+                <Avatar size="sm" name={record.name} />
+                <Text fontSize="sm">
+                  <strong>Course:</strong> {record.course}
+                </Text>
+                <Text fontSize="sm">
+                  <strong>Hours:</strong> {record.hours} hrs
+                </Text>
+                <Badge colorScheme={record.status === "Present" ? "green" : "red"}>
+                  {record.status}
+                </Badge>
+              </VStack>
+            </Box>
+          ))}
+        </GridItem>
+      );
+
+      dayCounter++;
     }
-    return "";
+
+    return calendarCells;
   };
 
   return (
-    <Box>
-      {/* Updated Header */}
-      <Text fontSize="2xl" fontWeight="bold" mb="4" color="blue.500" mt="20">
+    <Box bg="white" p={6} rounded="md" boxShadow="md">
+      <Text fontSize="2xl" fontWeight="bold" mb={4}>
         Attendance Calendar
       </Text>
-
-      {/* Course Dropdown */}
-      <Box mb="6">
-        <Text fontSize="lg" fontWeight="medium" color="gray.700" mb="2">
-          Select a Course:
-        </Text>
-        <Select
-          placeholder="Select a course"
-          onChange={(e) => setSelectedCourse(e.target.value)}
-          value={selectedCourse}
-          bg="white"
-          border="1px solid #e2e8f0"
-          borderRadius="md"
-          w="300px"
-        >
-          <option value="Mathematics">Mathematics</option>
-          <option value="Physics">Physics</option>
-          <option value="Computer Science">Computer Science</option>
-        </Select>
-      </Box>
-
-      {selectedCourse && (
-        <>
-          {/* Attendance Calendar */}
-          <Card
-            align="center"
-            direction="column"
-            w="100%"
-            maxW="max-content"
-            p="20px 15px"
-            h="max-content"
-            {...rest}
-          >
-            <Calendar
-              onChange={onChange}
-              value={value}
-              tileClassName={getTileClassName}
-              prevLabel={<Icon as={MdChevronLeft} w="24px" h="24px" mt="4px" />}
-              nextLabel={<Icon as={MdChevronRight} w="24px" h="24px" mt="4px" />}
-            />
-          </Card>
-
-          {/* Attendance Summary */}
-          <Box mt="6" p="4" border="1px solid #e2e8f0" borderRadius="md">
-            <Text fontSize="lg" fontWeight="medium" color="gray.700">
-              Attendance Summary for {selectedCourse}:
-            </Text>
-            <Text fontSize="md" mt="2" color="green.500">
-              Present:{" "}
-              {Object.entries(attendance)
-                .filter(([date, status]) => new Date(date) <= new Date() && status === "present")
-                .length}{" "}
-              days
-            </Text>
-            <Text fontSize="md" mt="1" color="red.500">
-              Absent:{" "}
-              {Object.entries(attendance)
-                .filter(([date, status]) => new Date(date) <= new Date() && status === "absent")
-                .length}{" "}
-              days
-            </Text>
-          </Box>
-        </>
-      )}
+      <Grid templateColumns="repeat(7, 1fr)" gap={4}>
+        <GridItem fontWeight="bold">Sun</GridItem>
+        <GridItem fontWeight="bold">Mon</GridItem>
+        <GridItem fontWeight="bold">Tue</GridItem>
+        <GridItem fontWeight="bold">Wed</GridItem>
+        <GridItem fontWeight="bold">Thu</GridItem>
+        <GridItem fontWeight="bold">Fri</GridItem>
+        <GridItem fontWeight="bold">Sat</GridItem>
+        {renderCalendarCells()}
+      </Grid>
     </Box>
   );
-}
+};
+
+export default AttendanceCalendar;

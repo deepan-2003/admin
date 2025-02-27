@@ -1,0 +1,51 @@
+.attendance-calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .calendar-header {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .calendar-cell {
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .calendar-cell.present {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .calendar-cell.absent {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .calendar-cell.holiday {
+    background-color: #ffeeba;
+    color: #856404;
+  }
+  
+  .calendar-cell.empty {
+    background-color: transparent;
+    border: none;
+  }
+  

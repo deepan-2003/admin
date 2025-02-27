@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Text, SimpleGrid, Button, Flex } from "@chakra-ui/react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import CourseCard from "./components/CourseCard";
+import AttendanceCalendar from "../attendance/components/AttendanceCalendar";
 import coursesData from "./variables/courses.json";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
@@ -63,24 +64,11 @@ export default function CoursesDashboard() {
 
       {/* Conditional Rendering */}
       {selectedCourse ? (
-        // Detailed view of selected course
+        // Detailed view with Attendance Calendar
         <Box bg="white" p="20px" rounded="xl" shadow="lg">
-          <Text fontSize="2xl" fontWeight="bold" mb="10px">
-            {selectedCourse.title} ({selectedCourse.courseCode})
-          </Text>
-          <Text fontSize="md" mb="10px">
-            Faculty: {selectedCourse.faculty}
-          </Text>
-          <Text fontSize="md" mb="10px">
-            Assignments Pending: {selectedCourse.assignmentsPending}
-          </Text>
-          <Text fontSize="md" mb="10px">
-            Classes Attended: {selectedCourse.classesAttended}/{selectedCourse.totalClasses}
-          </Text>
-          <Text fontSize="md" mb="10px">
-            Session: {selectedCourse.session}
-          </Text>
-          {/* Add more details as needed */}
+          
+          {/* Attendance Calendar Component */}
+          <AttendanceCalendar selectedCourse={selectedCourse} />
         </Box>
       ) : (
         // List of courses

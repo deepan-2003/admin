@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, VStack, Icon, Divider, Input, Button, HStack, Link } from "@chakra-ui/react";
-import { FaCertificate, FaPlus, FaTrash } from "react-icons/fa";
+import { Box, Heading, Text, VStack, Icon, Badge, Input, Button, Link, Flex } from "@chakra-ui/react";
+import { FaCertificate, FaPlus, FaTrash, FaEye } from "react-icons/fa";
 
 const Certifications = ({ certificates, isEditing, onSave }) => {
   const [editableCerts, setEditableCerts] = useState(certificates || []);
@@ -27,70 +27,120 @@ const Certifications = ({ certificates, isEditing, onSave }) => {
   };
 
   return (
-    <Box p={5} bg="white" borderRadius="lg" boxShadow="md" minH="300px" width="100%">
-      <Heading size="md" mb={4} display="flex" alignItems="center">
-        <Icon as={FaCertificate} color="blue.500" mr={2} /> Certifications
+    <Box p={6} bg="white" borderRadius="xl" width="100%" maxW="800px" mx="auto">
+      <Heading size="lg" mb={4} textAlign="center">
+        <Icon as={FaCertificate} color="blue.600" mr={2} /> Certifications
       </Heading>
 
-      <VStack align="start" spacing={3}>
+      <VStack spacing={3} align="stretch">
         {editableCerts.length > 0 ? (
           editableCerts.map((cert, index) => (
-            <Box key={index} width="100%">
+            <Box
+              key={index}
+              p={4}
+              border="1px solid"
+              borderColor="gray.100"
+              borderRadius="lg"
+              bg="white"
+              transition="all 0.2s"
+              _hover={{ bg: "gray.50" }}
+            >
               {isEditing ? (
-                <VStack align="start" spacing={1} width="100%">
-                  <Input size="md" value={cert.name} onChange={(e) => handleChange(index, "name", e.target.value)} placeholder="Certification Name" />
-                  <Input size="md" value={cert.issuer} onChange={(e) => handleChange(index, "issuer", e.target.value)} placeholder="Issuer" />
+                <VStack spacing={2} align="stretch">
                   <Input
-                    size="md"
+                    value={cert.name}
+                    onChange={(e) => handleChange(index, "name", e.target.value)}
+                    placeholder="Certification Name"
+                    size="sm"
+                    variant="filled"
+                  />
+                  <Input
+                    value={cert.issuer}
+                    onChange={(e) => handleChange(index, "issuer", e.target.value)}
+                    placeholder="Issuer"
+                    size="sm"
+                    variant="filled"
+                  />
+                  <Input
                     value={cert.year}
                     onChange={(e) => {
                       const newValue = e.target.value.replace(/[^0-9]/g, "");
                       handleChange(index, "year", newValue);
                     }}
                     placeholder="Year (Numbers Only)"
+                    size="sm"
+                    variant="filled"
                   />
-                  <Input size="md" value={cert.link} onChange={(e) => handleChange(index, "link", e.target.value)} placeholder="Certification Link" />
-                  <Input 
-                    type="file" 
-                    accept=".pdf,.doc,.docx" 
-                    onChange={(e) => handleFileChange(index, e.target.files[0])} 
-                    placeholder="Upload Certification"
+                  <Input
+                    value={cert.link}
+                    onChange={(e) => handleChange(index, "link", e.target.value)}
+                    placeholder="Certification Link"
+                    size="sm"
+                    variant="filled"
                   />
-                  <Button size="md" colorScheme="red" leftIcon={<FaTrash />} onClick={() => removeCertification(index)}>
-                    Remove
+                  <Input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => handleFileChange(index, e.target.files[0])}
+                    size="sm"
+                    variant="filled"
+                  />
+                  <Button
+                    size="sm"
+                    colorScheme="red"
+                    leftIcon={<FaTrash />}
+                    onClick={() => removeCertification(index)}
+                    width="full"
+                  >
+                    Remove Certification
                   </Button>
                 </VStack>
               ) : (
-                <>
-                  <Text fontSize="md" fontWeight="medium">🏆 {cert.name}</Text>
-                  <Text fontSize="sm" color="gray.500">{cert.issuer} ({cert.year})</Text>
-                  {cert.link && (
-                    <Text fontSize="sm" color="blue.500" as="a" href={cert.link} target="_blank" rel="noopener noreferrer">
-                      View Certificate
+                <Flex justifyContent="space-between" alignItems="center">
+                  <Box>
+                    <Text fontSize="md" fontWeight="600" color="gray.800">
+                      {cert.name}
                     </Text>
-                  )}
-                  {cert.file && (
-                    <Link href={URL.createObjectURL(cert.file)} target="_blank" color="green.500">
-                      View Uploaded File
+                    <Text fontSize="sm" color="gray.600">
+                      {cert.issuer} · <Badge colorScheme="blue" variant="subtle">{cert.year}</Badge>
+                    </Text>
+                  </Box>
+                  {(cert.link || cert.file) && (
+                    <Link
+                      href={cert.link || URL.createObjectURL(cert.file)}
+                      isExternal
+                      color="blue.500"
+                      fontSize="sm"
+                      display="flex"
+                      alignItems="center"
+                      whiteSpace="nowrap" // Ensure text stays in one line
+                    >
+                      <Icon as={FaEye} mr={1} /> View Certification
                     </Link>
                   )}
-                </>
+                </Flex>
               )}
-              {index !== editableCerts.length - 1 && <Divider />}
             </Box>
           ))
         ) : (
-          <Text fontSize="sm" color="gray.500">No certifications available.</Text>
+          <Text textAlign="center" color="gray.500">
+            No certifications added yet
+          </Text>
         )}
-      </VStack>
 
-      {isEditing && (
-        <HStack mt={4}>
-          <Button size="md" colorScheme="green" leftIcon={<FaPlus />} onClick={addCertification}>
+        {isEditing && (
+          <Button
+            colorScheme="blue"
+            leftIcon={<FaPlus />}
+            onClick={addCertification}
+            variant="outline"
+            size="md"
+            mt={2}
+          >
             Add Certification
           </Button>
-        </HStack>
-      )}
+        )}
+      </VStack>
     </Box>
   );
 };
