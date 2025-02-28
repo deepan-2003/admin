@@ -1,0 +1,23 @@
+[
+    {
+      "type": "Assessment",
+      "date": "2025-01-15",
+      "marks": 20
+    },
+    {
+      "type": "Seminar",
+      "date": "2025-02-10",
+      "marks": 15
+    },
+    {
+      "type": "EL",
+      "date": "2025-02-20",
+      "marks": 25
+    },
+    {
+      "type": "Attendance",
+      "date": "2025-02-28",
+      "marks": 90
+    }
+  ]
+  

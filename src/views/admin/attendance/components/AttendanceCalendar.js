@@ -1,83 +1,110 @@
-import React, { useState, useEffect } from "react";
-import { Box, Text, Badge, Avatar, VStack, Grid, GridItem } from "@chakra-ui/react";
-import attendanceData from "../variables/attendanceData.json";
+import React, { useState } from "react";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "../../../../assets/css/AttendanceCalendar.css";
+
+const localizer = momentLocalizer(moment);
 
 const AttendanceCalendar = () => {
-  const [attendance, setAttendance] = useState([]);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  useEffect(() => {
-    // Load attendance data from JSON
-    setAttendance(attendanceData);
-  }, []);
+  // Function to handle month navigation
+  const handlePreviousMonth = () => {
+    const newDate = moment(currentDate).subtract(1, "month").toDate();
+    setCurrentDate(newDate);
+  };
 
-  const renderCalendarCells = () => {
-    const daysInMonth = new Date(2025, 2, 0).getDate(); // Example: February 2025
-    const firstDay = new Date(2025, 1, 1).getDay(); // Example: Feb 1, 2025 (Saturday)
+  const handleNextMonth = () => {
+    const newDate = moment(currentDate).add(1, "month").toDate();
+    setCurrentDate(newDate);
+  };
 
-    const calendarCells = [];
-    let dayCounter = 1;
+  const events = [
+    {
+      title: "2 hrs",
+      start: new Date(2025, 1, 27, 9, 0),
+      end: new Date(2025, 1, 27, 17, 0),
+      color: "#008000", // Dark green
+    },
+    {
+      title: "1 hr",
+      start: new Date(2025, 1, 28, 9, 0),
+      end: new Date(2025, 1, 28, 17, 0),
+      color: "#FF0000", // Red
+    },
+  ];
 
-    // Render empty cells for days before the first of the month
-    for (let i = 0; i < firstDay; i++) {
-      calendarCells.push(<GridItem key={`empty-${i}`} />);
-    }
+  // Calculate attendance summary
+  const totalClasses = events.length; // Total number of events
+  const attendedClasses = events.filter((event) => event.color === "#008000").length; // Filter events marked as attended (green)
 
-    // Render cells for each day of the month
-    while (dayCounter <= daysInMonth) {
-      const dayAttendance = attendance.filter(
-        (record) => new Date(record.date).getDate() === dayCounter
-      );
+  const eventStyleGetter = (event) => {
+    const style = {
+      backgroundColor: `${event.color}33`, // Light shade for background
+      borderLeft: `5px solid ${event.color}`, // Dark border line
+      color: "white",
+      padding: "0", // Remove padding
+      margin: "2px 0", // Small margin between events
+      borderRadius: "3px", // Rounded corners
+      overflow: "hidden", // Prevent content overflow
+      textOverflow: "ellipsis", // Ellipsis for long text
+      whiteSpace: "nowrap", // Prevent wrapping
+    };
+    return { style };
+  };
 
-      calendarCells.push(
-        <GridItem key={`day-${dayCounter}`} border="1px solid #E2E8F0" p={2} rounded="md">
-          <Text fontWeight="bold">{dayCounter}</Text>
-          {dayAttendance.map((record, index) => (
-            <Box
-              key={index}
-              mt={2}
-              p={2}
-              bg={record.status === "Present" ? "green.100" : "red.100"}
-              rounded="md"
-            >
-              <VStack align="start" spacing={1}>
-                <Avatar size="sm" name={record.name} />
-                <Text fontSize="sm">
-                  <strong>Course:</strong> {record.course}
-                </Text>
-                <Text fontSize="sm">
-                  <strong>Hours:</strong> {record.hours} hrs
-                </Text>
-                <Badge colorScheme={record.status === "Present" ? "green" : "red"}>
-                  {record.status}
-                </Badge>
-              </VStack>
-            </Box>
-          ))}
-        </GridItem>
-      );
+  const customEventRenderer = (event) => (
+    <div className="custom-event">
+      <span className="event-text">{event.title}</span>
+    </div>
+  );
 
-      dayCounter++;
-    }
+  const CustomToolbar = () => {
+    const formattedDate = moment(currentDate).format("MMMM YYYY");
 
-    return calendarCells;
+    return (
+      <div className="custom-toolbar">
+        <button onClick={handlePreviousMonth} className="nav-button">
+          &lt; {/* Left arrow */}
+        </button>
+        <span className="toolbar-label">{formattedDate}</span>
+        <button onClick={handleNextMonth} className="nav-button">
+          &gt; {/* Right arrow */}
+        </button>
+      </div>
+    );
   };
 
   return (
-    <Box bg="white" p={6} rounded="md" boxShadow="md">
-      <Text fontSize="2xl" fontWeight="bold" mb={4}>
-        Attendance Calendar
-      </Text>
-      <Grid templateColumns="repeat(7, 1fr)" gap={4}>
-        <GridItem fontWeight="bold">Sun</GridItem>
-        <GridItem fontWeight="bold">Mon</GridItem>
-        <GridItem fontWeight="bold">Tue</GridItem>
-        <GridItem fontWeight="bold">Wed</GridItem>
-        <GridItem fontWeight="bold">Thu</GridItem>
-        <GridItem fontWeight="bold">Fri</GridItem>
-        <GridItem fontWeight="bold">Sat</GridItem>
-        {renderCalendarCells()}
-      </Grid>
-    </Box>
+    <div style={{ width: "90%", margin: "20px" }}>
+      {/* Attendance Summary */}
+      <div style={{ marginBottom: "20px", fontSize: "16px", fontWeight: "bold" }}>
+        Attendance Summary: {attendedClasses} / {totalClasses} classes attended
+      </div>
+      <CustomToolbar />
+      <div style={{ height: "400px" }}>
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{
+            height: "90%",
+            fontSize: "12px",
+          }}
+          eventPropGetter={eventStyleGetter}
+          components={{
+            event: customEventRenderer,
+          }}
+          views={["month"]} // Only show the month view
+          defaultView="month" // Set the default view to month
+          date={currentDate} // Set the controlled date
+          onNavigate={(newDate) => setCurrentDate(newDate)} // Sync date when navigating
+          toolbar={false} // Disable the default toolbar
+        />
+      </div>
+    </div>
   );
 };
 

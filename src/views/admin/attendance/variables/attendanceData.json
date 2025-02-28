@@ -1,31 +1,23 @@
 [
     {
-      "name": "John Doe",
-      "course": "Mathematics",
-      "status": "Present",
-      "hours": 2,
-      "date": "2025-02-01"
+      "courseId": "1",
+      "courseName": "Mathematics 101",
+      "attendanceRecords": [
+        { "date": "2025-01-01", "present": true },
+        { "date": "2025-01-02", "present": false },
+        { "date": "2025-01-03", "present": true },
+        { "date": "2025-01-08", "present": false },
+        { "date": "2025-01-10", "present": true }
+      ]
     },
     {
-      "name": "Jane Smith",
-      "course": "Physics",
-      "status": "Absent",
-      "hours": 0,
-      "date": "2025-02-01"
-    },
-    {
-      "name": "Michael Brown",
-      "course": "Chemistry",
-      "status": "Present",
-      "hours": 3,
-      "date": "2025-02-03"
-    },
-    {
-      "name": "Emily Johnson",
-      "course": "Biology",
-      "status": "Present",
-      "hours": 1,
-      "date": "2025-02-04"
+      "courseId": "2",
+      "courseName": "Computer Science 201",
+      "attendanceRecords": [
+        { "date": "2025-01-05", "present": true },
+        { "date": "2025-01-12", "present": false },
+        { "date": "2025-01-19", "present": true },
+        { "date": "2025-01-26", "present": false }
+      ]
     }
   ]
-  

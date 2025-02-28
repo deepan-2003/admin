@@ -1,51 +1,93 @@
-.attendance-calendar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 300px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.rbc-calendar {
+    background-color: #f9f9f9; /* Light gray background */
+    border: none; /* Remove calendar borders */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px; /* Rounded corners */
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
   }
   
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 10px;
-  }
-  
-  .calendar-header {
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .calendar-cell {
-    text-align: center;
-    padding: 5px;
-    border-radius: 4px;
-  }
-  
-  .calendar-cell.present {
-    background-color: #d4edda;
-    color: #155724;
-  }
-  
-  .calendar-cell.absent {
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  
-  .calendar-cell.holiday {
-    background-color: #ffeeba;
-    color: #856404;
-  }
-  
-  .calendar-cell.empty {
-    background-color: transparent;
+  .rbc-month-view {
     border: none;
   }
   
+  .rbc-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    border: none;
+    padding: 5px 0;
+  }
+  
+  /* Style the days of the month */
+  .rbc-day-bg {
+    background-color: #ffffff; /* White background */
+  }
+  
+  .rbc-today {
+    background-color: #eaf6ff !important; /* Light blue for today */
+    border-radius: 6px;
+  }
+  
+  .rbc-date-cell {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .rbc-month-row {
+    border: none;
+  }
+  
+  /* Style the events */
+  .rbc-event {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for events */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  /* Profile image inside the event */
+  .event-profile-image {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  
+  /* Event text */
+  .event-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  /* Custom toolbar styling */
+  .custom-toolbar {
+    display: flex;
+    justify-content: center; /* Center align the toolbar */
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 5px;
+  }
+  
+  .toolbar-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0 15px;
+  }
+  
+  .nav-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .nav-button:hover {
+    background-color: #0056b3;
+  }

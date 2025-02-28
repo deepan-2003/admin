@@ -27,23 +27,24 @@ const TimetableTable = ({ days, timeSlots, timetable }) => {
           </tr>
         </thead>
         <tbody>
-          {timeSlots.map((timeSlot, rowIndex) => (
+          {timeSlots.map((timeSlot) => (
             <tr key={timeSlot}>
               <td>{timeSlot}</td>
               {days.map((day) => {
                 const course = getCourseDetails(day, timeSlot);
                 return (
-                  <td
-                    key={`${day}-${timeSlot}`}
-                    style={getCellStyle(course)}
-                    rowSpan={course && course.time === timeSlot ? 2 : 1}
-                  >
+                  <td key={`${day}-${timeSlot}`} style={getCellStyle(course)}>
                     {course && (
-                      <div className="course-details">
-                        <div className="course-name">{course.courseName}</div>
-                        <div className="course-code">{course.courseCode}</div>
-                        <div className="venue">{course.venue}</div>
-                      </div>
+                      <>
+                        <div className="course-slot">
+                          {course.courseName} ({course.courseCode})
+                        </div>
+                        <div className="course-details">
+                          <div>Instructor: {course.instructor}</div>
+                          <div>Venue: {course.venue}</div>
+                          <div>Progress: {course.moduleProgress}</div>
+                        </div>
+                      </>
                     )}
                   </td>
                 );

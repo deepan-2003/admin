@@ -1,40 +1,79 @@
+.timetable-page {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #ffffff; /* White background */
+  color: #333333; /* Dark text color */
+}
+
 .timetable-container {
-    padding: 20px;
-    background: #f7f9fc;
-    color: #333;
-    border-radius: 8px;
-  }
-  
-  .timetable-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .timetable-table th,
-  .timetable-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .timetable-table th {
-    background: #e3f2fd;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-  
-  .course-slot {
-    background: #e0f7fa;
-    font-size: 12px;
-    text-align: left;
-  }
-  
-  .course-details .course-name {
-    font-weight: bold;
-  }
-  
-  .course-details .course-code,
-  .course-details .venue {
-    font-size: 11px;
-  }
-  
+  padding: 20px;
+  background: #f0f4f8ff; /* Light blue background */
+  color: #333;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.timetable-table th,
+.timetable-table td {
+  border: 1px solid #d9e8ff; /* Lighter blue border */
+  padding: 10px;
+  text-align: center;
+  width: 14.28%;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Style for the timing column */
+.timetable-table td:first-child {
+  background: #e3f2fd; /* Light blue for timing column */
+  font-weight: bold;
+  color: #00796b; /* Dark teal text color */
+}
+
+/* Style for the day headers */
+.timetable-table th {
+  background: #00796b; /* Dark teal for headers */
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ffffff; /* White text color */
+}
+
+.course-slot {
+  font-size: 16px; /* Increased font size for course name and code */
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.course-details {
+  display: none;
+  font-size: 14px; /* Increased font size for details */
+  color: #333; /* Darker color for details */
+  padding: 5px;
+  transition: opacity 0.3s;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background for details */
+  border-radius: 8px;
+}
+
+.timetable-table td:hover {
+  background-color: #d1ecf1; /* Lighter blue on hover */
+  color: #333;
+  z-index: 1;
+  transform: scale(1.05); /* Enlarge the hovered cell */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+.timetable-table td:hover .course-details {
+  display: block;
+  opacity: 1; /* Make details visible on hover */
+}
