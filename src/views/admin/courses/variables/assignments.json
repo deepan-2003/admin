@@ -1,167 +1,37 @@
-[
+{
+  "courseId": "1",
+  "assignments": [
     {
-      "courseId": "1",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "Introduction to Python",
-          "description": "Solve basic Python exercises using loops and conditionals.",
-          "deadline": "2025-01-20",
-          "status": "Pending"
-        },
-        {
-          "id": "A2",
-          "title": "Exploratory Data Analysis",
-          "description": "Perform EDA on the given dataset and submit a report.",
-          "deadline": "2025-02-05",
-          "status": "Pending"
-        },
-        {
-          "id": "A3",
-          "title": "Data Cleaning",
-          "description": "Clean and preprocess the dataset for analysis.",
-          "deadline": "2025-02-25",
-          "status": "Pending"
-        }
-      ]
+      "id": "A1",
+      "title": "Week 8 Assignment",
+      "description": "Machine Learning Fundamentals",
+      "instructions": "Complete all questions in the attached document.",
+      "document": {
+        "name": "Assignment_Week8.pdf",
+        "url": "/path/to/Assignment_Week8.pdf"
+      },
+      "assignedDate": "2025-03-02T12:00:00",
+      "deadline": "2025-03-07T23:59:59",
+      "status": "Not Handed in",
+      "marksPossible": 10,
+      "myWork": [],
+      "turnedInDate": null,
+      "marksAssigned": null
     },
     {
-      "courseId": "2",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "Linear Regression Implementation",
-          "description": "Build a linear regression model from scratch.",
-          "deadline": "2025-05-15",
-          "status": "Completed"
-        },
-        {
-          "id": "A2",
-          "title": "Decision Trees",
-          "description": "Explain and implement decision tree classifiers.",
-          "deadline": "2025-05-30",
-          "status": "Pending"
-        }
-      ]
-    },
-    {
-      "courseId": "3",
-      "assignments": []
-    },
-    {
-      "courseId": "4",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "Basics of Accounting",
-          "description": "Solve basic problems on accounting principles.",
-          "deadline": "2025-09-15",
-          "status": "Pending"
-        },
-        {
-          "id": "A2",
-          "title": "Management Reports",
-          "description": "Prepare financial reports based on given data.",
-          "deadline": "2025-10-01",
-          "status": "Pending"
-        },
-        {
-          "id": "A3",
-          "title": "Ratio Analysis",
-          "description": "Perform ratio analysis for given case studies.",
-          "deadline": "2025-10-15",
-          "status": "Pending"
-        },
-        {
-          "id": "A4",
-          "title": "Budget Planning",
-          "description": "Design a budget plan for a hypothetical company.",
-          "deadline": "2025-11-01",
-          "status": "Pending"
-        },
-        {
-          "id": "A5",
-          "title": "Profit and Loss Statement",
-          "description": "Prepare profit and loss statements based on transactions.",
-          "deadline": "2025-11-15",
-          "status": "Pending"
-        }
-      ]
-    },
-    {
-      "courseId": "5",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "AI Fundamentals",
-          "description": "Write a report on the basics of artificial intelligence.",
-          "deadline": "2025-01-30",
-          "status": "Completed"
-        }
-      ]
-    },
-    {
-      "courseId": "6",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "Data Visualization Basics",
-          "description": "Create simple visualizations using Matplotlib.",
-          "deadline": "2025-02-10",
-          "status": "Pending"
-        },
-        {
-          "id": "A2",
-          "title": "Dashboard Design",
-          "description": "Design a dashboard using Tableau or Power BI.",
-          "deadline": "2025-02-20",
-          "status": "Pending"
-        },
-        {
-          "id": "A3",
-          "title": "Data Storytelling",
-          "description": "Prepare a data story based on the given dataset.",
-          "deadline": "2025-03-05",
-          "status": "Pending"
-        },
-        {
-          "id": "A4",
-          "title": "Advanced Visualizations",
-          "description": "Create advanced visualizations using Seaborn.",
-          "deadline": "2025-03-20",
-          "status": "Pending"
-        }
-      ]
-    },
-    {
-      "courseId": "7",
-      "assignments": []
-    },
-    {
-      "courseId": "8",
-      "assignments": [
-        {
-          "id": "A1",
-          "title": "Software Engineering Principles",
-          "description": "Write an essay on the principles of software engineering.",
-          "deadline": "2025-01-25",
-          "status": "Pending"
-        },
-        {
-          "id": "A2",
-          "title": "Agile Methodologies",
-          "description": "Create a presentation on Agile development.",
-          "deadline": "2025-02-15",
-          "status": "Pending"
-        },
-        {
-          "id": "A3",
-          "title": "UML Diagrams",
-          "description": "Draw UML diagrams for a given software system.",
-          "deadline": "2025-03-05",
-          "status": "Pending"
-        }
-      ]
+      "id": "A2",
+      "title": "Week 9 Assignment",
+      "description": "Deep Learning Introduction",
+      "instructions": "Provide solutions to the neural network exercises.",
+      "document": null, 
+      "assignedDate": "2024-03-22T12:00:00",
+      "deadline": "2024-03-29T23:59:59",
+      "status": "Not Handed in",
+      "marksPossible": 15,
+      "myWork": [],
+      "turnedInDate": null,
+      "marksAssigned": null
     }
-  ]
   
+  ]
+}

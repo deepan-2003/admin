@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, SimpleGrid, Button, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  SimpleGrid,
+  Button,
+  Flex,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import CourseCard from "./components/CourseCard";
-import AttendanceCalendar from "../attendance/components/AttendanceCalendar";
+import AttendanceCalendar from "./components/AttendanceCalendar";
 import AssignmentsCard from "./components/AssignmentsCard";
 import InternalMarksTable from "./components/InternalMarksTable";
+import AssignmentDetails from "./components/AssignmentDetails";
 import coursesData from "./variables/courses.json";
 import assignmentsData from "./variables/assignments.json";
 import marksData from "./variables/internalMarksData.json";
-import attendanceData from "../attendance/variables/attendanceData.json";
+import attendanceData from "./variables/attendanceData.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function CoursesDashboard() {
@@ -17,7 +27,7 @@ export default function CoursesDashboard() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [courseAttendance, setCourseAttendance] = useState(null);
   const [courseAssignments, setCourseAssignments] = useState([]);
-  const [selectedAssignment, setSelectedAssignment] = useState(null); // New state for selected assignment
+  const [selectedAssignment, setSelectedAssignment] = useState(null);
 
   useEffect(() => {
     const filteredCourses = coursesData.filter(
@@ -33,39 +43,66 @@ export default function CoursesDashboard() {
       );
       setCourseAttendance(attendance || null);
 
-      const course = assignmentsData.find(
-        (item) => item.courseId === selectedCourse.id
-      );
-      setCourseAssignments(course ? course.assignments : []);
+      // Directly check the courseId in assignmentsData
+      if (assignmentsData.courseId === selectedCourse.id) {
+        setCourseAssignments(assignmentsData.assignments || []);
+      } else {
+        setCourseAssignments([]);
+      }
     }
   }, [selectedCourse]);
 
   const handleViewDetails = (assignment) => {
-    setSelectedAssignment(assignment); // Set the selected assignment
+    setSelectedAssignment(assignment); // Show assignment details
   };
 
   const handleBackToAssignments = () => {
-    setSelectedAssignment(null); // Clear the selected assignment
+    setSelectedAssignment(null); // Go back to assignment list
+  };
+
+  // Helper to reset everything:
+  const handleBackToCourses = () => {
+    setSelectedCourse(null);
+    setSelectedAssignment(null);
   };
 
   return (
     <Box bg="#f7f9fc" minH="100vh" p="20px">
       <Box h="80px" />
 
-      <Flex align="center" mb="20px">
-        <Button
-          variant="link"
-          fontSize="xl"
-          fontWeight="bold"
-          onClick={() => {
-            setSelectedCourse(null);
-            setSelectedAssignment(null); // Clear selected assignment when going back
-          }}
-        >
-          {selectedCourse ? `My Courses > ${selectedCourse.courseCode}` : "My Courses"}
-        </Button>
-      </Flex>
+      {/* =============== DYNAMIC BREADCRUMB =============== */}
+      <Breadcrumb fontSize="sm" mb={6}>
+        {/* "My Courses" is always the first breadcrumb */}
+        <BreadcrumbItem>
+          <BreadcrumbLink onClick={handleBackToCourses}>
+            My Courses
+          </BreadcrumbLink>
+        </BreadcrumbItem>
 
+        {/* If a course is selected, show that as the next item */}
+        {selectedCourse && (
+          <BreadcrumbItem>
+            <BreadcrumbLink onClick={handleBackToAssignments}>
+              {selectedCourse.courseCode}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        )}
+
+        {/* If an assignment is selected, show "Assignments" and the assignment title */}
+      {selectedAssignment && (
+  <BreadcrumbItem isCurrentPage>
+    <BreadcrumbLink
+    
+    >
+      Assignments - {selectedAssignment.title}
+    </BreadcrumbLink>
+  </BreadcrumbItem>
+)}
+
+
+      </Breadcrumb>
+
+      {/* Session Selector (only visible if no course is selected) */}
       {!selectedCourse && (
         <Box mb="20px" display="flex" alignItems="center" gap="10px">
           <Text fontSize="md" fontWeight="bold" mb="0">
@@ -93,11 +130,24 @@ export default function CoursesDashboard() {
 
       {selectedCourse && !selectedAssignment ? (
         <Flex gap="20px" align="flex-start">
+          {/* Attendance */}
           <Box flex="1" bg="white" p="20px" rounded="xl" shadow="lg">
-            <AttendanceCalendar selectedCourse={selectedCourse} attendance={courseAttendance} />
+            <AttendanceCalendar
+              selectedCourse={selectedCourse}
+              attendance={courseAttendance}
+            />
           </Box>
 
-          <Box flex="1" maxH="400px" bg="white" p="20px" rounded="xl" shadow="lg" overflowY="auto">
+          {/* Assignments List */}
+          <Box height ="500px"
+            flex="1"
+            maxH="500px"
+            bg="white"
+            p="20px"
+            rounded="xl"
+            shadow="lg"
+            overflowY="auto"
+          >
             <Text fontSize="xl" fontWeight="bold" mb="20px">
               Assignments for {selectedCourse.title}
             </Text>
@@ -107,7 +157,7 @@ export default function CoursesDashboard() {
                   <AssignmentsCard
                     key={assignment.id}
                     assignment={assignment}
-                    onViewDetails={() => handleViewDetails(assignment)} // Pass the handler
+                    onViewDetails={() => handleViewDetails(assignment)}
                   />
                 ))}
               </SimpleGrid>
@@ -117,27 +167,14 @@ export default function CoursesDashboard() {
           </Box>
         </Flex>
       ) : selectedAssignment ? (
-        <Box bg="white" p="20px" rounded="xl" shadow="lg">
-          <Button size="sm" colorScheme="blue" mb="4" onClick={handleBackToAssignments}>
-            Back to Assignments
-          </Button>
-          <Text fontWeight="bold" fontSize="2xl" mb="4">
-            {selectedAssignment.title}
-          </Text>
-          <Text fontSize="lg" color="gray.500" mb="4">
-            Due Date: {selectedAssignment.deadline ? new Date(selectedAssignment.deadline).toLocaleDateString() : "N/A"}
-          </Text>
-          <Text fontSize="md" mb="4" color="gray.700">
-            {selectedAssignment.description}
-          </Text>
-          <Text fontSize="sm" color="gray.600">
-            Status: {selectedAssignment.status}
-          </Text>
-          <Button mt="4" colorScheme="blue" onClick={() => alert(`Submitting ${selectedAssignment.title}`)}>
-            Submit Assignment
-          </Button>
-        </Box>
+        // Show single assignment details
+        <AssignmentDetails
+          assignmentId={selectedAssignment.id}
+          // If you need the "Back" button inside AssignmentDetails,
+          // pass onBack={handleBackToAssignments}, but it's optional
+        />
       ) : (
+        // Show course cards if no course is selected
         <SimpleGrid columns={[1, 2, 3]} spacing="20px">
           {courses.map((course) => (
             <Box
@@ -151,8 +188,10 @@ export default function CoursesDashboard() {
         </SimpleGrid>
       )}
 
-      {/* Internal Marks Table */}
-      {selectedCourse && !selectedAssignment && <InternalMarksTable marksData={marksData} />}
+      {/* Internal Marks Table (only if a course is selected, but not an assignment) */}
+      {selectedCourse && !selectedAssignment && (
+        <InternalMarksTable marksData={marksData} />
+      )}
     </Box>
   );
 }

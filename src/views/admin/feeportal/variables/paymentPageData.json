@@ -1,0 +1,26 @@
+{
+    "rollNo": "2022503039",
+    "name": "YUGASH D",
+    "semester": 6,
+    "department": "COMPUTER TECHNOLOGY",
+    "branch": "B.E. COMPUTER SCIENCE AND ENGINEERING",
+    "mode": "Full Time",
+    "fees": [
+      { "item": "Tuition Fee", "amount": 6000 },
+      { "item": "Development Fee", "amount": 2600 },
+      { "item": "Library Fee", "amount": 650 },
+      { "item": "Computer Charges", "amount": 1200 },
+      { "item": "Laboratory Contingency Charges", "amount": 1200 },
+      { "item": "Educational Media Charges", "amount": 500 },
+      { "item": "Internet Society Fee", "amount": 270 },
+      { "item": "Sports & Games Fee", "amount": 200 },
+      { "item": "University Cultural & Professional Society fee", "amount": 500 },
+      { "item": "Student Accident & Medical Relief Fund", "amount": 500 },
+      { "item": "Registration & Enrollment Fee", "amount": 800 },
+      { "item": "YRC / Army Flag day Subscription", "amount": 15 },
+      { "item": "Sports Affiliation Fee", "amount": 65 },
+      { "item": "Industrial Visit", "amount": 500 }
+    ],
+    "totalAmount": 15000
+  }
+  

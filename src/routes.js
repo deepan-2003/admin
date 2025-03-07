@@ -9,8 +9,10 @@ import {
   MdOutlineShoppingCart,
   MdSchedule,
   MdCalendar,
+  MdAssignment,
   MdToday,
-  MdLibraryBooks
+  MdLibraryBooks,
+  MdAttachMoney
 } from 'react-icons/md';
 
 import { AttendanceIcon } from 'components/icons/Icons';
@@ -21,14 +23,12 @@ import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
-
 import Timetable from 'views/admin/timetable';
-import CoursePage from 'views/admin/courses'; // Import the Courses page
-
-
-
-// Auth Imports
+import CoursePage from 'views/admin/courses';
+import FeePayment from 'views/admin/feeportal';
+import Apply from 'views/admin/apply';
 import SignInCentered from 'views/auth/signIn';
+
 
 const routes = [
   {
@@ -83,6 +83,20 @@ const routes = [
     path: '/profile',
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     component: <Profile />,
+  },
+  {
+    name: 'Fee Portal',
+    layout: '/admin',
+    icon: <Icon as={MdAttachMoney} width="20px" height="20px" color="inherit" />,
+    path: '/fee-portal',
+    component: <FeePayment />,
+  },
+  {
+    name: 'Apply', // New Apply Page
+    layout: '/admin',
+    path: '/apply',
+    icon: <Icon as={MdAssignment} width="20px" height="20px" color="inherit" />,
+    component: <Apply />,
   },
   {
     name: 'Sign In',

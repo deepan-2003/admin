@@ -1,0 +1,22 @@
+[
+  {
+      "name": "Bonafide",
+      "icon": "CustomBonafideIcon"
+  },
+  {
+      "name": "Transfer Certificate",
+      "icon": "CustomBonafideIcon"
+  },
+  {
+      "name": "WiFi",
+      "icon": "MdWifi"
+  },
+  {
+      "name": "Duplicate ID",
+      "icon": "MdFileCopy"
+  },
+  {
+      "name": "Discontinue Refund",
+      "icon": "MdPerson"
+  }
+]

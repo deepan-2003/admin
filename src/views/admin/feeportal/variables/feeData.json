@@ -1,0 +1,64 @@
+[
+  {
+    "semester": "Semester 6",
+    "amount": 15000,
+    "lateFee": 500,
+    "readmFee": 1000,
+    "penalty": 0,
+    "totalAmount": 16500,
+    "date": "-",
+    "status": "Fee Unpaid"
+  },
+  {
+    "semester": "Semester 5",
+    "amount": 15000,
+    "lateFee": 0,
+    "readmFee": 0,
+    "penalty": 0,
+    "totalAmount": 15000,
+    "date": "19-Jul-24",
+    "status": "Fee Paid"
+  },
+  {
+    "semester": "Semester 4",
+    "amount": 15000,
+    "lateFee": 0,
+    "readmFee": 0,
+    "penalty": 0,
+    "totalAmount": 15000,
+    "date": "24-Feb-24",
+    "status": "Fee Paid"
+  },
+  {
+    "semester": "Semester 3",
+    "amount": 15000,
+    "lateFee": 0,
+    "readmFee": 0,
+    "penalty": 0,
+    "totalAmount": 15000,
+    "date": "08-Sep-23",
+    "status": "Fee Paid"
+  },
+  {
+    "semester": "Semester 2",
+    "amount": 15000,
+    "lateFee": 0,
+    "readmFee": 0,
+    "penalty": 0,
+    "totalAmount": 15000,
+    "date": "27-Apr-23",
+    "status": "Fee Paid"
+  },
+  
+  
+  {
+    "semester": "Semester 1",
+    "amount": 19060,
+    "lateFee": 0,
+    "readmFee": 0,
+    "penalty": 0,
+    "totalAmount": 19060,
+    "date": "28-Sep-22",
+    "status": "Fee Paid"
+  }
+]

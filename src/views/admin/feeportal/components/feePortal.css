@@ -1,0 +1,147 @@
+/* General container styling */
+.fee-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f6fb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+
+  
+}
+
+/* Title */
+.fee-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fee-table thead {
+  background: #150460;
+  color: white;
+}
+
+.fee-table th, .fee-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+.fee-table th {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Row hover effect */
+.fee-table tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+/* Status colors */
+.paid {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.unpaid {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Button Styling */
+.fee-button {
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #12bff3;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+.fee-button:hover {
+  background-color: #1f6690;
+}
+
+.fee-button svg {
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .fee-container {
+    padding: 10px;
+    margin-top: 6rem;
+    max-width: 90%;
+  }
+
+  .fee-table {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .fee-container {
+    margin-top: 5rem;
+    padding: 5px;
+    max-width: 100%;
+  }
+
+  .fee-title {
+    font-size: 20px;
+  }
+
+  .fee-button {
+    min-width: 180px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .fee-table {
+    width: 100%;
+    display: block;
+  }
+
+  .fee-table th, .fee-table td {
+    white-space: nowrap;
+  }
+}
+
+/* Adjust table for small screens */
+@media (max-width: 1200px) {
+  .fee-container {
+    width: 70%;
+    margin-top: 10rem;
+  }
+
+  .fee-table thead tr th:not(:first-child):not(:nth-child(6)):not(:nth-child(8)):not(:last-child),
+  .fee-table tbody tr td:not(:first-child):not(:nth-child(6)):not(:nth-child(8)):not(:last-child) {
+    display: none;
+  }
+}

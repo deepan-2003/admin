@@ -1,0 +1,56 @@
+[
+  {
+    "courseId": "1",
+    "courseName": "Data Science Essentials",
+    "attendanceRecords": [
+      {"date": "2025-01-06", "present": true, "hours": 2},
+      {"date": "2025-01-13", "present": true, "hours": 2},
+      {"date": "2025-01-20", "present": false, "hours": 2},
+      {"date": "2025-01-27", "present": true, "hours": 2},
+      {"date": "2025-02-03", "present": true, "hours": 2},
+      {"date": "2025-02-10", "present": true, "hours": 2},
+      {"date": "2025-02-17", "present": false, "hours": 2}
+    ]
+  },
+  {
+    "courseId": "3",
+    "courseName": "Programming in Scratch",
+    "attendanceRecords": [
+      {"date": "2025-01-07", "present": true, "hours": 1},
+      {"date": "2025-01-14", "present": true, "hours": 1},
+      {"date": "2025-01-21", "present": true, "hours": 1},
+      {"date": "2025-01-28", "present": true, "hours": 1},
+      {"date": "2025-02-04", "present": true, "hours": 1},
+      {"date": "2025-02-11", "present": true, "hours": 1},
+      {"date": "2025-02-18", "present": true, "hours": 1},
+      {"date": "2025-02-25", "present": false, "hours": 1}
+    ]
+  },
+  {
+    "courseId": "5",
+    "courseName": "Introduction to Artificial Intelligence",
+    "attendanceRecords": [
+      {"date": "2025-01-08", "present": true, "hours": 3},
+      {"date": "2025-01-15", "present": true, "hours": 3},
+      {"date": "2025-01-22", "present": true, "hours": 3},
+      {"date": "2025-01-29", "present": true, "hours": 3},
+      {"date": "2025-02-05", "present": true, "hours": 3},
+      {"date": "2025-02-12", "present": true, "hours": 3},
+      {"date": "2025-02-19", "present": true, "hours": 3},
+      {"date": "2025-02-26", "present": true, "hours": 3}
+    ]
+  },
+  {
+    "courseId": "6",
+    "courseName": "Basics of Data Visualization",
+    "attendanceRecords": [
+      {"date": "2025-01-09", "present": false, "hours": 2},
+      {"date": "2025-01-16", "present": true, "hours": 2},
+      {"date": "2025-01-23", "present": false, "hours": 2},
+      {"date": "2025-01-30", "present": true, "hours": 2},
+      {"date": "2025-02-06", "present": false, "hours": 2},
+      {"date": "2025-02-13", "present": true, "hours": 2},
+      {"date": "2025-02-20", "present": false, "hours": 2}
+    ]
+  }
+]
